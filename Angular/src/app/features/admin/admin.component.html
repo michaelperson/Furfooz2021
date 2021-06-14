@@ -1,0 +1,65 @@
+<header>
+    <div>
+        <i (click)="toggle()" class="button fa fa-bars"></i>
+    </div>
+    <div><h1>Furfooz</h1></div>
+    <div>
+        <i (click)="logout()" class="button fas fa-power-off"></i>
+    </div>
+</header>
+<main>
+    <nav [ngClass]="{ collapsed: collapsed }">
+        <ul>
+            <li routerLinkActive="active">
+                <a routerLink="/admin/dashboard" (click)="collapse()">
+                    <span class="icon"><i class="fas fa-chart-line"></i></span>
+                    <span class="title">Dashboard</span>
+                </a>
+            </li>
+            <li routerLinkActive="active">
+                <a>
+                    <span class="icon"><i class="fa fa-map-marker"></i></span>
+                    <span class="title">Points d'intérêts <i class="fa fa-caret-down"></i></span>
+                </a>
+                <ul class="submenu">
+                    <li routerLinkActive="active"><a routerLink="/admin/point-of-interests/index" (click)="collapse()"><span>Index</span></a></li>
+                    <li routerLinkActive="active"><a routerLink="/admin/point-of-interests/category" (click)="collapse()"><span>Catégories</span></a></li>
+                </ul>
+            </li>
+            <!-- routerLink="/admin/booking" (click)="collapse()" -->
+            <li routerLinkActive="active">
+                <a>
+                    <span class="icon"><i class="fa fa-calendar"></i></span>
+                    <span class="title">Réservations <i class="fa fa-caret-down"></i></span>
+                </a>
+                <ul class="submenu">
+                    <li routerLinkActive="active"><a routerLink="/admin/booking/index" (click)="collapse()"><span>Index</span></a></li>
+                    <li routerLinkActive="active"><a routerLink="/admin/booking/tarifs" (click)="collapse()"><span>Tarifs</span></a></li>
+                    <li routerLinkActive="active"><a routerLink="/admin/booking/parameters" (click)="collapse()"><span>Paramètres</span></a></li>
+                    <li routerLinkActive="active"><a routerLink="/admin/booking/check" (click)="collapse()"><span>Vérification réservation</span></a></li>
+                </ul>
+            </li>
+
+            <li routerLinkActive="active">
+                <a routerLink="/admin/nest" (click)="collapse()">
+                    <span class="icon"><i class="fas fa-camera"></i></span>
+                    <span class="title">Nichoirs</span>
+                </a>
+            </li>
+            <li routerLinkActive="active">
+                <a>
+                    <span class="icon"><i class="fa fa-map"></i></span>
+                    <span class="title">Sentiers</span>
+                </a>
+                <ul class="submenu">
+                    <li routerLinkActive="active"><a routerLink="/admin/path/index" (click)="collapse()"><span>Index</span></a></li>
+                    <li routerLinkActive="active"><a routerLink="/admin/path/add" (click)="collapse()"><span>Ajouter</span></a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <section>
+        <router-outlet></router-outlet>
+    </section>
+</main>
+<footer>&copy; Playzone 2020 - Furfooz</footer>

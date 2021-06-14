@@ -1,0 +1,50 @@
+ table {
+     width: 100%;
+  }
+  
+   .IdColumn{
+     width: 25%;
+
+   }
+
+  th.mat-sort-header-sorted {
+    color: black;
+  }
+
+  .Bouton{
+    background-color: green;
+    color: white;
+     border:none;
+    margin: 10px;
+  }
+  .mat-elevation-z8{
+    width: 100%;
+  }
+body{
+  background-size: cover;
+  
+}
+
+.boutonCree{
+  display: flex;
+  justify-content: flex-end;
+ 
+}
+#boutonAdd{
+ color: white;
+ background-color: green;
+ font-size: 2rem;
+ border: none;
+ height: 2%;
+ width: 3%;
+}
+.active{
+  color: green;
+}
+.desact{
+  color: red;
+}
+.image{
+  width: 70px;
+  height: 70px;
+}

@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "../src/app/components/clip-video/clip-video.page.scss"
+    ],
+    "names": [],
+    "file": "clip-video.page.min.css"
+}

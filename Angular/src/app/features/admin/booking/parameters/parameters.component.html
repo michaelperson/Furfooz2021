@@ -1,0 +1,32 @@
+<form [formGroup]="fg" (ngSubmit)="submit()">
+    <div class="row">
+        <div class="col-md-12 d-flex align-items-center justify-content-between">
+            <h4>Liste des paramètres</h4>
+        </div>
+        <div class="form-group col-md-12">
+            <label>Nombre de personnes limite</label>
+            <input type="number" class="form-control" formControlName="PersonLimit">
+        </div>
+        <div class="form-group col-md-12">
+            <label>Décomposition des heures</label>
+            <input type="number" class="form-control" formControlName="HourDivide" (change)="CheckHourDivide()" (keyup)="CheckHourDivide()">
+            <div *ngIf="GoodDivide == false" class="alert alert-danger">{{ CheckMessage }}</div>
+        </div>
+        <div class="form-group col-md-12">
+            <label>Heure de début</label>
+            <input type="number" class="form-control" formControlName="StartHour">
+        </div>
+        <div class="form-group col-md-12">
+            <label>Heure de fin</label>
+            <input type="number" class="form-control" formControlName="EndHour">
+        </div>
+    </div >
+    <div class="row">
+        <div *ngIf="GoodDivide == true" class="col-md-12 text-right my-2">
+            <button class="btn btn-danger btn-block">Sauvegarder</button>
+        </div>
+        <div *ngIf="GoodDivide == false" class="col-md-12 text-right my-2">
+            <button class="btn btn-danger btn-block" disabled>Sauvegarder</button>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,35 @@
+
+  <div class="all">
+    <header>
+      <button (click)="closeDialog()" class="FermerLeDetail">
+        <img src="../../../../assets/icon/path/croix_bouton.svg">
+      </button>
+    </header>
+    <p class="intro" *ngIf="currentSeason != 1">{{ 'SeasonDialog.Intro' | translate }}<strong>{{ getCurrentSeasonName() | translate }}</strong> </p> 
+    <p class="intro" *ngIf="currentSeason == 1">{{'SeasonDialog.Intro2' | translate}}<strong>{{ getCurrentSeasonName() | translate }}</strong> </p>
+    <img class="PrintempsIcon" [src]="getCurrentSeasonImage()" alt="currentSeason">
+    <p class="text">{{ 'SeasonDialog.FlavorText' | translate }}</p>
+  
+      <div class="divButtonSaison">
+
+     
+    <div class="saison" *ngIf="currentSeason != 1">
+        <p class="season_name">{{ 'SeasonDialog.Spring' | translate }}</p>
+        <img class="season_icon" src="assets/icon/path/printemps-gris-petit.svg" alt="printemps">
+    </div>
+    <div class="saison" *ngIf="currentSeason != 2">
+      <p class="season_name">{{ 'SeasonDialog.Summer' | translate }}</p>
+      <img class="season_icon" src="assets/icon/path/ete_noir.svg" alt="été">
+    </div>
+    <div class="saison" *ngIf="currentSeason != 3">
+      <p class="season_name">{{ 'SeasonDialog.Autumn' | translate }}</p>
+      <img class="season_icon" src="assets/icon/path/automne_noir1.svg" alt="automne">
+  </div>
+    <div class="saison" *ngIf="currentSeason != 0">
+      <p class="season_name">{{ 'SeasonDialog.Winter' | translate }}</p>
+      <img class="season_icon" src="assets/icon/path/hiver_noir.svg" alt="hiver">
+    </div>
+    </div>
+  </div>
+
+  

@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title><div class="img-container">
+      <img class="FurfoozHome" src="../../../../assets/img/FurfoozHome.svg"> 
+    </div></ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="goToMap()"> <img class="BoutonMap" src="../../../../assets/icon/map_icon.svg" alt=""> </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div>
+    <div>
+      <ion-list lines="none">
+        <ion-item *ngFor="let location of Eventlist" > 
+
+         
+          <div id="container" [ngClass]="location.DisplayClass || 'passe'">    
+              
+              <div>
+                <p  (click)="poiModal(location.Id);">
+                  {{getName(location)}} 
+                  
+                </p>
+                <a  *ngIf="location.CameraIsActive" (click)="test(location); "> <i class="icam"> </i></a> 
+              </div>
+
+                </div>
+                          </ion-item>
+        </ion-list>
+    </div>
+  </div>
+  
+</ion-content>

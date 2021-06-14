@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,EAAE,AAAA,CACE,KAAK,CAAE,GAAG,CASb,AAVD,AAEI,EAFF,CAEE,EAAE,AAAC,CACC,OAAO,CAAE,QAAQ,CACjB,MAAM,CAAE,GAAG,CAAC,KAAK,CAAC,eAAe,CAIpC,AARL,AAKQ,EALN,CAEE,EAAE,AAGG,IAAK,CAAA,UAAW,CAAA,CAAC,EAAE,CAChB,UAAU,CAAE,MAAM,CACrB,AAIT,AAAA,WAAW,AAAC,CACR,OAAO,CAAE,IAAI,CACb,WAAW,CAAE,MAAM,CACtB,AACD,AAAA,KAAK,AAAA,CACD,KAAK,CAAE,IAAI,CACd",
+    "sources": [
+        "../src/app/components/prices-ninfos/prices-ninfos.component.scss"
+    ],
+    "names": [],
+    "file": "prices-ninfos.component.min.css"
+}

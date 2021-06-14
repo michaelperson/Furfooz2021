@@ -1,0 +1,37 @@
+<!-- 
+<ul *ngFor="let tariff of tariffs">
+    <li>id : {{tariff.Id}}</li>
+    <li>type de ticket : {{tariff.TicketType}}</li>
+    <li>prix furfooz : {{tariff.FurfoozPrice}}</li>
+    <li>prix de groupe furfooz : {{tariff.FurfoozReducedPrice}}</li>
+    <li>prix combiné Veves : {{tariff.VevesPrice}}</li>
+    <li>prix de groupe combiné Veves : {{tariff.VevesReducedPrice}}</li>
+    <li>prix combiné Mosan : {{tariff.MosanPrice}}</li>
+    <li>prix de groupe combiné Mosan : {{tariff.MosanReducedPrice}}</li>
+</ul> -->
+
+<table class="table table-hover">
+    <tr>
+        <!-- <th>Id</th> -->
+        <th scope="col"></th>
+        <th scope="col">Prix Furfooz</th>
+        <th scope="col">Prix de groupe Furfooz</th>
+        <th scope="col">Prix combiné Vêves</th>
+        <th scope="col">Prix de groupe combiné Vêves</th>
+        <th scope="col">Prix combiné Mosan</th>
+        <th scope="col">Prix de groupe combiné Mosan</th>
+    </tr>
+    <tr *ngFor="let tariff of tariffs">
+        <!-- <td>{{tariff.Id}}</td> -->
+        <th scope="row">{{tariff.TicketType}}</th>
+        <td><input type="number" min="0" step="0.5" [(ngModel)]="tariff.FurfoozPrice"></td>
+        <td><input type="number" min="0" step="0.5" [(ngModel)]="tariff.FurfoozReducedPrice"></td>
+        <td><input type="number" min="0" step="0.5" [(ngModel)]="tariff.VevesPrice"></td>
+        <td><input type="number" min="0" step="0.5" [(ngModel)]="tariff.VevesReducedPrice"></td>
+        <td><input type="number" min="0" step="0.5" [(ngModel)]="tariff.MosanPrice"></td>
+        <td><input type="number" min="0" step="0.5" [(ngModel)]="tariff.MosanReducedPrice"></td>
+    </tr>
+</table>
+<div class="col-md-12 text-right my-2">
+    <button (click)="Save()" class="btn btn-danger btn-block">Sauvegarder les changements</button>
+</div>

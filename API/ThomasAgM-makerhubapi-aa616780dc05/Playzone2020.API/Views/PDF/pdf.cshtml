@@ -1,0 +1,302 @@
+﻿@using Playzone2020.API.Resources
+@using Playzone2020.API.Utils
+
+@model Playzone2020.API.Dto.TicketDTO
+
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../styles/ticket.css">
+        <title>Document</title>
+        <style>
+            html {
+                background-color: #fff;
+                color: #000;
+                margin: 1% 3.5% 1% 3.5%;
+                font-size: 14pt;
+                height: 100%;
+                font-family: 'Open Sans', sans-serif;
+            }
+
+            body {
+                display: block;
+                margin: 0;
+                min-height: 100%;
+            }
+
+
+
+            .ticket_footer {
+                position: absolute;
+                top: 898px; /* pour fixer les CGV dans le bas */
+            }
+
+            h1 {
+                text-align: center;
+                margin: 0;
+            }
+
+            h2 {
+                font-size: 18pt;
+                margin: 0;
+                font-weight: bold;
+            }
+
+            p {
+                display: block;
+            }
+
+            .ticket_section {
+                border-bottom: dashed;
+                padding-bottom: 20pt;
+            }
+
+            .ticket_full_larg {
+                margin: 0 1.5% 0 1.5%;
+                padding: 0;
+                border: 0;
+            }
+
+            .ticket_demi_larg {
+                width: 47%;
+                margin: 0 1.5% 0 1.5%;
+                padding: 0;
+                border: 0;
+            }
+
+            .ticket_tier_larg {
+                width: 30.33%;
+                margin: 0 1.5% 0 1.5%;
+                padding: 0;
+                border: 0;
+            }
+
+            .ticket_ticket, .ticket_date {
+                display: flex;
+            }
+
+            .ticket_rap {
+                display: flex;
+                text-align: center;
+                border: solid #d12d24;
+                margin-top: 20pt;
+            }
+
+            .ticket_ticket_row {
+                display: flex;
+                flex-direction: column;
+                max-height: 100%;
+            }
+
+            img {
+                width: 100%;
+            }
+
+            .ticket_date {
+                background-color: #A8DCD8;
+                padding-top: 5pt;
+                margin: 0 1.5% 0 1.5%;
+            }
+
+            table, tr, td, tbody {
+                border: 0;
+                margin: 0;
+                padding: 0;
+                border-spacing: 0;
+                width: 100%;
+            }
+            /* definition du contenu block */
+
+            td:nth-child(2) {
+                text-align : center;
+            }
+
+            .ticket_icon {
+                padding: 10pt;
+                flex: 1;
+            }
+
+            .ticket_rap_txt {
+                flex: 70%;
+            }
+
+            .ticket_qr_img {
+                flex: 50%;
+            }
+
+            .ticket_date > div {
+                vertical-align: middle;
+            }
+
+            .ticket_center {
+                text-align: center;
+            }
+
+            .qrcode p {
+                text-align: center;
+            }
+
+            .qrcode_visu {
+                display: flex;
+            }
+
+                .qrcode_visu > div {
+                    display: flex;
+                }
+
+                .qrcode_visu img {
+                    vertical-align: middle;
+                }
+
+            .ticket_img_vert {
+                fill: #79C143
+            }
+
+            .ticket_adresse {
+                display: flex;
+                font-size: 14pt;
+            }
+
+            .ticket_adresse_tel {
+                margin-left: auto;
+            }
+
+            .ticket_bas {
+                display: flex;
+                align-content: flex-end;
+                margin-top: auto;
+            }
+            /* typo */
+            .ticket_18 {
+                font-size: 18pt;
+            }
+
+            .ticket_12 {
+                font-size: 10pt;
+            }
+
+            .ticket_7 {
+                font-size: 8pt;
+            }
+
+            .ticket_bold {
+                font-weight: bold;
+            }
+
+            .ticket_red {
+                color: #d12d24;
+                font-weight: bold;
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <h1><img class="ticket_tier_larg" src="http://localhost:5001/api/image/logofur.jpg" alt=""></h1>
+
+        <main>
+            <div class="ticket_section">
+                <div class="ticket_date">
+                    <div class=" ticket_demi_larg">
+                        <p class="ticket_18 ticket_center">Date : <time class="ticket_bold" datetime="">@Model.BookingDate.ToShortDateString()</time></p>
+                    </div>
+                    <div class=" ticket_demi_larg">
+                        <p class="ticket_18  ticket_center">Heure : <time class="ticket_bold" datetime="">@Model.BookingDate.Hour.ToString("00") H @Model.BookingDate.Minute.ToString("00")</time></p>
+                        <p class="ticket_12">En cas de retard, votre billet ne sera plus valable</p>
+                    </div>
+                </div>
+                <div class="ticket_ticket">
+                    <div class="qrcode ticket_demi_larg">
+                        @*<p>ID: afficher numero de commande</p>*@
+                        <div class=qrcode_visu>
+                            <div class="ticket_icon ticket_img_vert">
+                                <img src="http://localhost:5001/api/image/fleche.svg">
+                            </div>
+                            <div class="ticket_qr_img">
+                                <img src="http://localhost:5001/api/booking/qrcode/@Model.Reference">
+                            </div>
+                            <div class="ticket_icon ticket_img_vert">
+                                <img src="http://localhost:5001/api/image/flecheinv.svg">
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="ticket_ticket_row ticket_demi_larg">
+                        <p>Type de tickets</p>
+                        @if (Model.CombinedMosan == false && Model.CombinedVeves == false)
+                        {
+                            <p class="ticket_bold">Ticket simple</p>
+                        }
+                        @if (Model.CombinedMosan == true)
+                        {
+                            <p class="ticket_bold">Combiné Maison du patrimoine médiéval mosan</p>
+                        }
+                        @if (Model.CombinedVeves == true)
+                        {
+                            <p class="ticket_bold">Combiné Château de Vêves et Parc de Furfooz</p>
+                        }
+                        <table>
+                            <tbody>
+                                @if (Model.NbAdult > 0)
+                                {
+                                    <tr>
+                                        <td>tickets adultes</td>
+                                        <td>@Model.NbAdult</td>
+                                    </tr>
+                                }
+                                @if (Model.NbKid > 0)
+                                {
+                                    <tr>
+                                        <td>tickets enfants (6 - 12 ans)</td>
+                                        <td>@Model.NbKid</td>
+                                    </tr>
+                                }
+                                @if (Model.NbStudent > 0)
+                                {
+                                    <tr>
+                                        <td>tickets étudiants</td>
+                                        <td>@Model.NbStudent</td>
+                                    </tr>
+                                }
+                                @if (Model.NbMember > 0)
+                                {
+                                    <tr class="ticket_red">
+                                        <td>place membres</td>
+                                        <td>@Model.NbMember*</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                        <p>Email : @Model.MailAdress</p>
+                        @if (Model.NbMember > 0)
+                        {
+                            <p class="ticket_red ticket_bas">*la carte de membre sera demandée à l'entrée</p>
+                        }
+                    </div>
+                </div>
+            </div>
+            <div class="ticket_full_larg ticket_rap ticket_section">
+                <div class="ticket_icon">
+                    <img class="ticket_img_vert" src="http://localhost:5001/api/image/dog.svg" alt="">
+                </div>
+                <div class="ticket_rap_txt">
+                    <h2>Attention !</h2>
+                    <p>Le parc peut être dangereux pour de jeunes enfants<br> Le parc est innacéssible aux PMR<br> Les chiens en laisse sont autorisés</p>
+                </div>
+                <div class="ticket_icon">
+                    <img src="http://localhost:5001/api/image/handi.svg" alt="">
+                </div>
+            </div>
+        </main>
+        <div class="ticket_full_larg ticket_7 ticket_footer">
+            <p>Sauf accord exprès de l'administration du parc, aucune commande ne peut être modifiée ou annulée par le client. Le parc de Furfooz se réserve le droit d’annuler partiellement ou totalement une commande pour tous motifs sérieux et légitimes ou si celle-ci est contraire à la loi. Toute annulation entraîne automatiquement un refus d’accès au parc.  Le client ne bénéfice pas du droit de renoncer à l’achat de son Titre en vertu de l’article VI.53.12°) du Code de droit économique, qui exclut tout droit de rétractation en cas de vente à distance dans le secteur des loisirs ; le client ne bénéficie dès lors d’aucun droit de rétractation. Le client est tenu de vérifier toute communication relative aux droits d'accès. Par conséquent, il est de sa responsabilité de fournir une adresse email valable afin de pouvoir être informé correctement et rapidement des modifications éventuelles. Le parc n’est pas tenu d’exécuter ses obligations en cas de force majeure, ce qui inclut par exemple les catastrophes naturelles, les actes et ordres des autorités publiques, les actes de terrorisme ou de guerre, l’indisponibilité des réseaux électriques ou des services de télécommunication, la défaillance d’un fournisseur ou partenaire, les accidents et maladies, ainsi que tout autre événement qui n’était pas raisonnablement prévisible et surmontable pour l'administration du parc.</p>
+            <div class="ticket_adresse">
+                <p>Parc de Furfooz - Rue du Camp Romain 79, 5500 Dinant</p>
+                <p class="ticket_adresse_tel">TEL: 082 22 34 77</p>
+            </div>
+        </div>
+    </body>
+</html>
+

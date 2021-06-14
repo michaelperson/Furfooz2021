@@ -1,0 +1,23 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12" *ngIf="categories">
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Nom (français)</th>
+                            <th>Nom (néerlandais)</th>
+                            <th>Nom (anglais)</th>
+                            <th>Couleur</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr app-category-row></tr>
+                        <tr app-category-row [model]="item" *ngFor="let item of categories" ></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

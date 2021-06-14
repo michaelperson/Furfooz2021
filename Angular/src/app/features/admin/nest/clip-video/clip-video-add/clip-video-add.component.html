@@ -1,0 +1,91 @@
+<body>
+    <div>
+        <form [formGroup]="formDetail" #formDirective="ngForm" (ngSubmit)="onFormSubmit(formDirective)">
+            <div class="DivNom" >
+                <mat-form-field class="matField" >
+                    <mat-label>Nom Français :</mat-label>
+                    <input matInput [formControl]="formDetail.get('Nom_Fr')">
+                    <mat-hint></mat-hint>
+                    <mat-error *ngIf="formDetail.get('Nom_Fr').hasError('required')">
+                        Veuillez entrer un Nom
+                      </mat-error>
+                  </mat-form-field>
+            </div> 
+
+            <div class="DivNom" >
+                <mat-form-field class="matField" >
+                    <mat-label>Nom Anglais :</mat-label>
+                    <input matInput [formControl]="formDetail.get('Nom_En')">
+                    <mat-hint></mat-hint>
+                  </mat-form-field>
+            </div> 
+
+            <div class="DivNom" >
+                <mat-form-field class="matField" >
+                    <mat-label>Nom Neerlandais :</mat-label>
+                    <input matInput [formControl]="formDetail.get('Nom_Nl')">
+                    <mat-hint></mat-hint>
+                  </mat-form-field>
+            </div> 
+            
+            <div class="DivEmplacement" >
+                <mat-form-field class="matField">
+                    <mat-label>Lien</mat-label>
+                    <input matInput [formControl]="formDetail.get('Lien')">
+                    <mat-hint></mat-hint>
+                    <mat-error *ngIf="formDetail.get('Lien').hasError('required')">
+                        Veuillez entrer un Lien
+                      </mat-error>
+                  </mat-form-field>
+            </div>
+            <div>
+                <label>Etat :  </label>
+                <mat-radio-group [formControl]="formDetail.get('EstAffiche')">
+                    <mat-radio-button class="buttonv"  [value]="true">Activée  </mat-radio-button>
+                    <mat-radio-button [value]="false" >Désactivée</mat-radio-button>
+                </mat-radio-group>
+            
+          </div>
+            <div class="DivEstActif" >
+                <mat-form-field class="matField">
+                    <mat-label>Lien image :</mat-label>
+                    <input matInput [formControl]="formDetail.get('Lienimg')">
+                    <mat-hint></mat-hint>
+                    <mat-error *ngIf="formDetail.get('Lienimg').hasError('required')">
+                        Veuillez entrer un Lien
+                      </mat-error>
+                  </mat-form-field>
+            </div>
+            <div class="DivEstActif" >
+                <mat-form-field class="matField">
+                    <mat-label>Detail</mat-label>
+                    <input matInput [formControl]="formDetail.get('Detail')">
+                    <mat-hint></mat-hint>
+                    <mat-error *ngIf="formDetail.get('Detail').hasError('required')">
+                        Veuillez entrer un Detail
+                      </mat-error>
+                  </mat-form-field>
+            </div>
+            <!-- <div class="DivEstActif" >
+                <mat-form-field class="matField">
+                    <mat-label>Camera_Id</mat-label>
+                    <input matInput [formControl]="formDetail.get('Camera_Id')">
+                    <mat-hint></mat-hint>
+                    <mat-error *ngIf="formDetail.get('Camera_Id').hasError('required')">
+                        Veuillez entrer une Camera_Id
+                      </mat-error>
+                  </mat-form-field>
+            </div> -->
+            <div class="bouton">
+                
+                <button class="boutonSave" type="submit">Sauvegarder</button>
+                <button class="boutonAnnuler"  type="button" (click)="Close();">Annuler</button>
+            </div>
+        </form>
+        
+    </div>
+</body>
+
+<footer>
+
+</footer>

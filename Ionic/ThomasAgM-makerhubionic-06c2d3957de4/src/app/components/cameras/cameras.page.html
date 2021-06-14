@@ -1,0 +1,28 @@
+<ng-container *ngIf="Cam">
+  <ion-header>
+    <ion-toolbar> 
+      <ion-item> <p class="CamTitle" >{{getName(Cam)}}</p></ion-item>
+    </ion-toolbar>    
+  </ion-header>
+
+  
+  <ion-content class="has-header">
+    <ion-item class="ion-padding-start"> <div class="myOverlay">
+      <div class="PageEnCours"> 
+      <p class="card-title"> Caméra</p>
+      </div>
+      <div class="PageClick">
+      <p class="buttonclass" (click)="clipvideo(Cam.Id)" class="card-title"> Clip Vidéos</p>
+    </div>
+    </div></ion-item>
+     <ion-card *ngIf="Cam"  class="myCard" >
+
+        
+         <img [src]="getSafeUrl(Cam.Emplacement)">
+         <div class="LIVE">
+          <p class="LIVETEXT"> 🔴 LIVE</p>
+        </div>
+     
+     </ion-card>
+     </ion-content>
+</ng-container>

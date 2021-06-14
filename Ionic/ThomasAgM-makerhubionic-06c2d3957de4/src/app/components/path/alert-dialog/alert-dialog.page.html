@@ -1,0 +1,8 @@
+<!-- texte du bouton d'alarme+image de la cloche -->
+<div class="all">
+  <button (click)="closeDialog(false)" class="FermerLeDetail">
+    <img src="../../../../assets/icon/path/croix_bouton.svg">
+  </button>
+  <p class="avertissement">{{'Notif.AlertNotif' | translate}}</p>
+  <img (click)="closeDialog(true)" class="notifActivation" src="../../../../assets/icon/path/alerte_sonore_active.svg" alt="notifActivation">
+</div>

@@ -1,0 +1,69 @@
+
+<form>
+    <div class="form-row">
+        <div class="form-group col-md-2">
+            <label for="form-date">Date : </label>
+            <input type="date" class="form-control" name="form-date" id="form-date" [(ngModel)]="bookingForm.Date" (change)="GetHours(bookingForm.Date)">
+        </div>
+
+        <div class="form-group col-md-1">
+            <label for="form-time"> Heure : </label>
+            <select id="form-time" class="form-control" name="form-time" [(ngModel)]="bookingForm.Time">
+                <option *ngFor="let hour of hours" [disabled]="CheckAvailability(hour.nbPersonsBooked)">{{hour.time}}</option>
+            </select>
+        </div>
+
+        <div class="form-group col-md-3">
+            <label for="form-ticket"> Type de ticket : </label>
+            <select id="form-ticket" class="form-control" name="form-ticket" [(ngModel)]="bookingForm.TicketType" (change)="Total()">
+                <option value="Furfooz">Ticket simple</option>
+                <option value="Mosan">Combi Mosan</option>
+                <option value="Veves">Combi Veves</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-2">
+            <label for="form-nbAdults">Adultes : </label>
+            <input type="number" id="form-nbAdults" class="form-control" name="form-nbAdults" min="0" [(ngModel)]="bookingForm.NbAdults" (change)="Total()">
+        </div>
+    
+        <div class="form-group col-md-2">
+            <label for="form-nbKids">Enfants : </label>
+            <input type="number" id="form-nbKids" class="form-control" name="form-nbKids" min="0" [(ngModel)]="bookingForm.NbKids" (change)="Total()">
+        </div>
+        
+        <div class="form-group col-md-2">
+            <label for="form-nbStudents">Étudiants : </label>
+            <input type="number" id="form-nbStudents" class="form-control" name="form-nbStudents" min="0" [(ngModel)]="bookingForm.NbStudents" (change)="Total()">
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-3">
+            <label for="form-wantAGuide">Demander un guide : </label>
+            <input type="checkbox" id="form-wantAGuide" class="form-check" name="form-wantAGuide" [(ngModel)]="bookingForm.WantAGuide" (change)="Total()">
+        </div>
+    
+        <div *ngIf="bookingForm.WantAGuide" class="form-group col-md-3">
+            <label for="form-guidePrice">Prix du guide / Personne</label>
+            <input type="number" id="form-guidePrice" class="form-control" name="form-guidePrice" min="0" step="0.5" [(ngModel)]="bookingForm.GuidePrice" (change)="Total()">
+        </div>
+    </div>
+
+    
+    <div class="form-row">
+        <div class="form-group col-md-2">
+            <label for="form-member">Nombre de membres Ardenne et Gaume : </label>   
+            <input type="number" id="form-member" class="form-control" name="form-member" min="0" [max]=bookingForm.NbAdults [(ngModel)]="bookingForm.Members" (change)="Total()">
+        </div>
+    </div>
+
+    <p>Total :&nbsp;{{total}} €</p>
+    <div class="form-group col-md-6">
+        <button *ngIf="authorizeRegister == true" class="btn btn-danger" (click)="RegisterBooking()">Valider la commande</button>
+        <button *ngIf="authorizeRegister == false" class="btn btn-danger" (click)="RegisterBooking()" disabled>Valider la commande</button>
+    </div>
+
+</form>

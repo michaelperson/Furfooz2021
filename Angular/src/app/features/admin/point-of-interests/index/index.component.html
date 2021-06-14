@@ -1,0 +1,32 @@
+<div class="container-fluid" *ngIf="categories">
+    <div class="form-group text-right">
+        <button routerLink="/admin/point-of-interests/add" class="btn btn-large btn-danger"><i class="fas fa-plus"></i></button>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <ng-select2 [data]="categories | select2 : 'Id' : 'Name_fr'"
+                    [(ngModel)]="selectedCategories" 
+                    placeholder="Veuillez choisir une categorie" 
+                    width="100%"
+                    [allowClear]="true" 
+                    [options]="selectMultipleOptions">
+                </ng-select2>
+            </div>
+        </div>
+        <div *ngIf="pointOfInterests?.length" class="col-md-6">
+            <div class="form-group">
+                <ng-select2 [(ngModel)]="selectedPoiId" 
+                    [data]="pointOfInterests | select2 : 'Id' : 'Name_fr'"
+                    placeholder="Veuillez choisir un point d'intérêt" 
+                    width="100%" 
+                    [allowClear]="true">
+                </ng-select2>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="selectedPoi">
+        <h4>Edition de «{{ selectedPoi.Name_fr }}»</h4>
+        <app-poi-form [model]="selectedPoi"></app-poi-form>
+    </div>
+</div>

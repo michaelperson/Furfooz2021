@@ -1,0 +1,45 @@
+*{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.Titre{
+    text-align: center;
+}
+ion-item{
+    --inner-padding-end: 0px;
+    --padding-start:0px;
+    
+
+}
+
+.wrapper{
+    display: flex;
+}
+
+.ListCam{
+    vertical-align: bottom;
+    text-align: center;
+  
+    
+    
+}
+
+
+.VideoTitle{
+    background-color: #185A74;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    z-index: 1;
+    height: 2.5rem;
+    width: 100%;
+    text-align: center;
+  
+}
+
+.ListCam p{
+    vertical-align: middle;
+    text-align: center;
+    padding: 10px;
+}

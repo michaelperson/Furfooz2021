@@ -1,0 +1,88 @@
+{
+    "General":{
+        "Close" : "Close"
+        
+    },
+    "Menu": {
+        "Home": "Home",
+        "Map": "Map",
+        "Animals": "Fauna",
+        "Flora" : "Flora",
+        "Points of Interest": "Points of interest",
+        "Restauration" : "Restaurant & Other",
+        "Flobette" : "The Flobette",
+        "Settings": "Settings",
+        "Information" : "Information",
+        "Flower" : "Botanical trail",
+        "DeleteLib" : "Delete from library"
+
+    },
+    "Map": {
+        "ShowPoi": "Show Points of Interest",
+        "Legend" : "Legend"
+    },
+    "Schedule" : {
+        "Schedule" : "Schedule",
+        "Week" : "Week",
+        "Jan" : "January",
+        "Feb" : "February",
+        "Mar" : "March",
+        "Apr" : "April",
+        "May" : "May",
+        "Jun" : "June",
+        "Jul" : "July",
+        "Aug" : "August",
+        "Sep" : "September",
+        "Oct" : "October",
+        "Nov" : "November",
+        "Dec" : "December",
+        "Closed" : "Closed",
+        "Reservation" : "On reservation"
+    },
+    "Flobette" : {
+        "Flobette" : "The Flobette",
+        "Dish" : "Dish",
+        "Price" : "Price"
+    },
+    "Path" : {
+        "Proximity" : "In your vicinity",
+        "Further" : "In 50 metres or more",
+        "Tree" : "Botanist",
+        "Plant" : "Novice",
+        "Flower" : "Amateur",
+        "NoPlants" : "There are no plants in your vicinity"
+    },
+    "SeasonDialog" : {
+        "Intro" : "Our flora shows you the most beautiful facets of ",
+        "Intro2" : "Our flora shows you the most beautiful facets of ",
+        "FlavorText" : "Other seasons' species are toggleable through those icons",
+        "Winter" : "Winter",
+        "Autumn" : "Autumn",
+        "Spring" : "Spring",
+        "Summer" : "Summer"
+    },
+    "Notif" : {
+        "AlertNotif" : "Do you wish to receive notifications when you are in the vicinity of a plant ?"
+    },
+    "Details" : {
+        "Audio" : "Audio guide",
+        "ReadLater" : "Read later",
+        "Desc" : "Description",
+        "Env" : "Uses",
+        "Loc" : "Ecology & habitat",
+        "NoDesc" : "There is no description in your language",
+        "NomLatin": "Latin Name"
+    }
+    ,
+    "IntroModal" : {
+        "Intro": "Welcome to the enchanting world of Furfooz. This application will assist you in your journey so that you won't miss any of its wonders",
+        "Pres1" : "We are protecting the biodiversity and protected spaces where nature is a priority",
+        "Pres2" : "The trail does a loop of 3.5km, it takes approximately 2 hours to roam it",
+        "start" : "Start",
+        "NoDesc" : "There is no description in your language"
+    },
+    "ListeCameras" : {
+        "Titre": "Watch the video clips"
+    }
+    
+}

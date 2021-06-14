@@ -1,0 +1,130 @@
+<form [formGroup]="fg" (ngSubmit)="submit()">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+                <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input" id="customSwitches" formControlName="IsDeleted">
+                    <label class="custom-control-label" for="customSwitches">Désactiver</label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 d-flex align-items-center justify-content-between">
+            <h4>Titre</h4>
+        </div>
+        <div class="form-group col-md-4">
+            <label>Français</label>
+            <input type="text" class="form-control" formControlName="Name_fr">
+        </div>
+        <div class="form-group col-md-4">
+            <label>Anglais</label>
+            <input type="text" class="form-control" formControlName="Name_en">
+        </div>
+        <div class="form-group col-md-4">
+            <label>Néerlandais</label>
+            <input type="text" class="form-control" formControlName="Name_nl">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h4>Description</h4>
+        </div>
+        <div class="form-group col-md-12">
+            <button type="button" class="btn btn-info btn-block mb-1" data-toggle="collapse"
+                data-target="#editor_fr">Afficher/Cacher en français</button>
+            <div id="editor_fr" class="collapse show">
+                <editor formControlName="Description_fr" [apiKey]="'TINYMCE_KEY' | env" [init]="editorOptions"></editor>
+            </div>
+        </div>
+        <div class="form-group col-md-12">
+            <button type="button" class="btn btn-info btn-block mb-1" data-toggle="collapse"
+                data-target="#editor_en">Afficher/Cacher en anglais</button>
+            <div id="editor_en" class="collapse">
+                <editor formControlName="Description_en" [apiKey]="'TINYMCE_KEY' | env" [init]="editorOptions"></editor>
+            </div>
+        </div>
+        <div class="form-group col-md-12">
+            <button type="button" class="btn btn-info btn-block mb-1" data-toggle="collapse"
+                data-target="#editor_nl">Afficher/Cacher en néerlandais</button>
+            <div id="editor_nl" class="collapse">
+                <editor formControlName="Description_nl" [apiKey]="'TINYMCE_KEY' | env" [init]="editorOptions"></editor>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h4>Catégorie</h4>
+        </div>
+        <div class="form-group col-md-12">
+            <ng-select2 formControlName="Category_id" [data]="categories | select2 : 'Id': 'Name_fr'"
+                placeholder="Veuillez choisir une categorie" width="100%" [options]="selectOptions">
+            </ng-select2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h4>Dates</h4>
+        </div>
+        <div class="form-group col-md-6">
+            <label>Date de début</label>
+            <input type="date" class="form-control" formControlName="StartDate">
+        </div>
+        <div class="form-group col-md-6">
+            <label>Date de fin</label>
+            <input type="date" class="form-control" formControlName="EndDate">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-md-12">
+            <h4>Coordonnées</h4>
+        </div>
+        <div class="form-group col-md-4">
+            <label>Latitude</label>
+            <input type="number" class="form-control" formControlName="Latitude" (input)="refreshMarker()">
+        </div>
+        <div class="form-group col-md-4">
+            <label>Longitude</label>
+            <input type="number" class="form-control" formControlName="Longitude" (input)="refreshMarker()">
+        </div>
+        <div class="form-group col-md-4">
+            <label>Id de la camera</label>
+            <input type="text" class="form-control" formControlName="Camera_Id">
+        </div>
+
+        <div class="col-md-12">
+            <button type="button" class="btn btn-primary btn-block mb-1" data-toggle="collapse"
+                data-target="#map-container">Afficher/Cacher la carte</button>
+            <div class="collapse show" id="map-container">
+                <div id=map></div>
+                <button type="button" id="focus" (click)="setBounds()"><i class="fas fa-bullseye"></i></button>
+            </div>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <input #fileInput hidden type="file" accept="image/*" (change)="fileChange($event)">
+        <div class="imageCont">
+            <div class="col-md-6">
+                <div class="ImageContainer" (click)="fileInput.click()">
+                    <img [src]="imageSource | imgDefault">
+                </div>
+                <div class="pt-3" *ngIf="imageSource != null">
+                    <button (click)="deletePic()" class="btn btn-danger" type="button">Supprimer l'image</button>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div>
+                    <img id="cropper" #cropper [src]="rawImage">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div id="cropper"></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 text-right my-2">
+            <button class="btn btn-danger btn-block">Sauvegarder</button>
+        </div>
+    </div>
+</form>

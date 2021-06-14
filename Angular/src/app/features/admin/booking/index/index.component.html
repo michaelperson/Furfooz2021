@@ -1,0 +1,49 @@
+<!-- <select [(ngModel)]="limit" (change)="changeLimit()">
+    <option>10</option>
+    <option>15</option>
+    <option>20</option>
+    <option>25</option>
+</select> -->
+<label for="nbBookings">Nombre de réservations par page : </label>
+<input id="nbBookings" type="number" [(ngModel)]="limit" min="10" max="50" step="10">
+<button class="btn btn-info" (click)="changeLimit()">Appliquer les changements</button>
+<div class="form-group text-right">
+    <button routerLink="/admin/booking/add" class="btn btn-large btn-danger"><i class="fas fa-plus"></i></button>
+</div>
+<table *ngIf="bookings">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Référence</th>
+            <th scope="col">Type de ticket</th>
+            <th scope="col">Date de réservation</th>
+            <th scope="col">Nombre de personnes</th>
+            <th scope="col">Demande de guide</th>
+            <th scope="col">Total</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let booking of bookings">
+            <th scope="row">{{booking.Id}}</th>
+            <td>{{booking.Reference}}</td>
+            <td *ngIf="!booking.CombinedMosan && !booking.CombinedVeves">Balade Simple</td>
+            <td *ngIf="booking.CombinedMosan">Combiné Mosan</td>
+            <td *ngIf="booking.CombinedVeves">Combiné Vêves</td>
+            <td>Le {{booking.Date | date : 'dd/MM/yy'}} à {{booking.Hour | number : '2.0-0'}}:{{booking.Minute | number : '2.0-0'}}</td>
+            <td>
+                <p style="text-decoration: underline;">{{booking.NbAdults + booking.NbStudents + booking.NbKids}} personnes : </p>
+                <p>-{{booking.NbAdults}} adultes</p>
+                <p>-{{booking.NbStudents}} étudiants</p>
+                <p>-{{booking.NbKids}} enfants</p>
+            </td>
+            <td *ngIf="booking.WantAGuide">Oui</td>
+            <td *ngIf="!booking.WantAGuide">Non</td>
+            <!-- <i class="fas fa-exclamation-triangle waiting"></i> -->
+            <td>{{booking.Total}}€</td>
+            <td><button *ngIf="booking.PayementType === 'stripe'" class="btn btn-success" (click)="sendMail(booking.Reference)">Renvoyer le ticket par mail</button></td>
+        </tr>
+    </tbody>
+</table>
+<button class="btn btn-info" (click)="changePage(-1)" style="display: inline;">&lt;</button>
+<p style="display: inline;">Réservations : {{min}} - {{max}}</p>
+<button class="btn btn-info" (click)="changePage(1)" style="display: inline;">&gt;</button>

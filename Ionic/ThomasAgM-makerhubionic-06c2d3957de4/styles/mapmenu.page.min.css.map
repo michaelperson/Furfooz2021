@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,UAAU,AAAC,CACP,UAAU,CAAE,KAAK,CACpB",
+    "sources": [
+        "../src/app/components/generics/mapmenu/mapmenu.page.scss"
+    ],
+    "names": [],
+    "file": "mapmenu.page.min.css"
+}

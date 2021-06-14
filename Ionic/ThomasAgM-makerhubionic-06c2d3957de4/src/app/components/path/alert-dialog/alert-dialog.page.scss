@@ -1,0 +1,54 @@
+// utilisation de la police
+*{
+    font-family: 'Open Sans',-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;  
+}
+
+/* SUPPRIMER LA BORDURE JAUNE LORS DU CLIC */
+:focus {
+    outline: none;
+    }
+/* ////////////// */
+//Supprimer carré au milieu de l'écran(container mat dialog)
+::ng-deep{
+    .mat-dialog-container{
+        padding: 0;
+    }
+}
+.FermerLeDetail{  
+    height: 12%;
+    /* border: 1px solid violet;  */
+    margin-right: 2%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    position: absolute;
+    right: 0%;
+    background: #FFFFFF;
+}
+.FermerLeDetail img{
+    height: 75%;
+}
+.all{
+/* Rectangle 188 */
+border: 5px solid #79C143;
+position: absolute;
+width: 80vw;
+height: 248px;
+left: 10vw;
+top: 80px;
+background: #FFFFFF;
+box-sizing: border-box;
+}
+
+// mise en page du texte
+.avertissement{
+    text-align: center;
+    padding: 10% 5% 3% 5%;
+}
+
+// mise en page de l'image
+.notifActivation{
+    height: 30%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}

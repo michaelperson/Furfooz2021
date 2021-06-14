@@ -1,0 +1,8 @@
+{
+  "name": "Furfooz",
+  "integrations": {
+    "capacitor": {},
+    "cordova": {}
+  },
+  "type": "angular"
+}

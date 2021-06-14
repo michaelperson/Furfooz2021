@@ -1,0 +1,38 @@
+<ion-header>
+    <ion-toolbar class="entete">
+      <ion-title class="title_bibliotheque">Bibliothèque</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="general">
+    <h2 class="title1">Point d'interêt</h2>
+    <div class="boucle">
+      <div class="divImage" [routerLink]="['/mapmenu']" (click)="openPoiDetails(poi.Id)" *ngFor="let poi of listPoI">
+        <img class="divImageImage" src={{poiService.urlImg}}{{poi.ImageUrl}}>
+        <div class="divBackground">
+          <div class="divBackgroundTransbox">
+            <label  class="ImageName">{{getName(poi)}}</label>
+          </div>
+        </div>
+        <div class="trash">
+          <button class="trashIcon" (click)="deleteFromPoiList(poi.Id)"><img src="../../../../../assets/icon/path/trash.svg" ></button>
+        </div>
+      </div>
+    </div>
+    <h2 class="title2">Sentier Botanique</h2>   
+    <div class="boucle">
+      <div class="divImage" [routerLink]="['/mapmenu']" (click)="openDetails(c.id)" *ngFor="let c of listPlant">
+        <img class="ImageImage" src={{plantService.urlImg}}{{c.imageUrl}}>
+        <div class="divBackground">
+          <div class="divBackgroundTransbox">
+            <label class="ImageName">{{getNamePlant(c)}}</label>
+          </div>
+        </div>
+        <div class="trash">
+          <button class="trashIcon" (click)="deleteFromList(c.id)"><img src="../../../../../assets/icon/path/trash.svg" ></button>
+        </div>
+    </div>
+  </div>
+  </div>
+</ion-content>

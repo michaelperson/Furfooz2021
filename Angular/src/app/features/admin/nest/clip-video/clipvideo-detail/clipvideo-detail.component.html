@@ -1,0 +1,72 @@
+
+<body>
+    <div>
+        <form [formGroup]="formDetail" #formDirective="ngForm" (ngSubmit)="onFormSubmit(formDirective)">
+            <div class="DivNom" >
+                <mat-form-field class="matField" >
+                    <mat-label>Nom Français :</mat-label>
+                    <input matInput [formControl]="formDetail.get('Nom_Fr')">
+                    <mat-hint></mat-hint>
+                  </mat-form-field>
+            </div> 
+            <div class="DivNom" >
+                <mat-form-field class="matField" >
+                    <mat-label>Nom Anglais :</mat-label>
+                    <input matInput [formControl]="formDetail.get('Nom_En')">
+                    <mat-hint></mat-hint>
+                  </mat-form-field>
+            </div> 
+            <div class="DivNom" >
+                <mat-form-field class="matField" >
+                    <mat-label>Nom Neerlandais :</mat-label>
+                    <input matInput [formControl]="formDetail.get('Nom_Nl')">
+                    <mat-hint></mat-hint>
+                  </mat-form-field>
+            </div> 
+            <div class="DivEmplacement" >
+                <mat-form-field class="matField">
+                    <mat-label>Lien :</mat-label>
+                    <input matInput [formControl]="formDetail.get('Lien')">
+                    <mat-hint></mat-hint>
+                  </mat-form-field>
+            </div>
+
+            <div class="DivEstActif" >
+                <mat-form-field class="matField">
+                    <mat-label>Detail :</mat-label>
+                    <input matInput [formControl]="formDetail.get('Detail')">
+                    <mat-hint></mat-hint>
+                  </mat-form-field>
+            </div>
+        
+            <div class="DivEstActif" >
+                <mat-form-field class="matField">
+                    <mat-label>Lien image :</mat-label>
+                    <input matInput [formControl]="formDetail.get('LienImg')">
+                    <mat-hint></mat-hint>
+                  </mat-form-field>
+            </div>
+
+            <div>
+                <label>Etat :  </label>
+                <mat-radio-group [formControl]="formDetail.get('EstAffiche')">
+                    <mat-radio-button class="buttonv"  [value]="true">Activée  </mat-radio-button>
+                    <mat-radio-button [value]="false" >Désactivée</mat-radio-button>
+                </mat-radio-group>
+            
+          </div>
+            <div class="bouton">
+                
+                <button class="boutonSave" type="submit">Sauvegarder</button>
+                <button class="boutonAnnuler"  type="button" (click)="Close();">Annuler</button>
+                <button class="boutonsupp"  type="button" (click)="supp();">Supprimer la vidéo</button>
+            </div>
+        </form>
+        
+    </div>
+</body>
+
+<footer>
+
+</footer>
+

@@ -1,0 +1,46 @@
+
+    <td>
+        <input [ngClass]="{ disabled: !editMode }" [disabled]="!editMode" class="form-control" type="text" [(ngModel)]="model.Name_fr">
+    </td>
+    <td>
+        <input [ngClass]="{ disabled: !editMode }" [disabled]="!editMode" class="form-control" type="text" [(ngModel)]="model.Name_nl">
+    </td>
+    <td>
+        <input [ngClass]="{ disabled: !editMode }" [disabled]="!editMode" class="form-control" type="text" [(ngModel)]="model.Name_en">
+    </td>
+    <td>
+        <ng-select2 [ngClass]="{ disabled: !editMode }" [disabled]="!editMode" [options]="selectOptions" width="300px" [(ngModel)]="model.PinColor">
+            <option *ngFor="let color of colors" [value]="color">{{color}}</option>
+        </ng-select2>
+    </td>
+    <td>
+        <ng-container *ngIf="!model.Id">
+            <div class="actions">
+                <button class="btn btn-action btn-primary" (click)="submit()">
+                    <i class="fa fa-plus"></i>
+                </button>
+            </div>
+        </ng-container>
+        <ng-container *ngIf="model.Id">
+            <div class="actions" *ngIf="!editMode">
+                <button class="btn btn-action btn-danger" (click)="disable(model.Id)">
+                    <i class="fa fa-trash"></i>
+                </button>
+                <button class="btn btn-action btn-info" (click)="toggleEditMode()">
+                    <i class="fa fa-edit"></i>
+                </button>
+            </div>
+            <div class="actions" *ngIf="editMode">
+                <button class="btn btn-action btn-success" (click)="submit()">
+                    <i class="fa fa-check"></i>
+                </button>
+                <button class="btn btn-action btn-warning" (click)="toggleEditMode()">
+                    <i class="fa fa-remove"></i>
+                </button>
+            </div>
+        </ng-container>
+    </td>
+
+
+
+

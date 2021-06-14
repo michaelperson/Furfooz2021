@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "../src/app/components/generics/sortedpoilist/sortedpoilist.page.scss"
+    ],
+    "names": [],
+    "file": "sortedpoilist.page.min.css"
+}

@@ -1,0 +1,112 @@
+ion-item{
+    --padding-start:0px;
+    --margin-start: 0px;
+}
+
+
+ion-toolbar{
+
+    display: flex;
+}
+
+*{
+    list-style-type: none;
+    text-decoration-style: none;
+    text-decoration: none;
+    color: #424242;
+    padding: 0;
+    margin: 0;
+    font-weight: bold;
+}
+
+p{
+    padding-top: 16px;
+}
+.BoutonMap{
+    height: 100%;
+    width: 100%;
+    margin-left: 50%
+}
+.FurfoozHome{
+    margin-left: 50%;
+}
+
+
+// .IndividualPoi{
+//     height: 50px;
+//     width: 60%;
+//     background-color: #A8DAD7;
+//     border-bottom-right-radius: 80px 100px; 
+//     border-top-right-radius:80px 100px; 
+// }
+
+.arrow{
+    height: 49px;
+    float: left;
+
+}
+.divcam{
+    display: flex;
+    justify-content: space-between;
+}
+
+.icam{
+    background-size: contain;
+    background-image: url(../../../../assets/icon/camerapng.png);
+    background-repeat: no-repeat;
+    float: right;
+    height: 30px;
+    width: 30px;
+    color: #185A74;
+    /* background-size: auto; */
+    margin-top: -1.3rem;
+    margin-right: 1.25rem;
+}
+
+.passe {
+    height: 50px;
+    width: 90%;
+    background-color: #5A94A2;
+    border-bottom-right-radius: 50px 70px; 
+    border-top-right-radius:50px 70px; 
+    background-image: url(../../../../assets/icon/Fleche_contourv3.svg);
+    background-repeat: no-repeat;
+    padding-left: 1rem;
+    margin-bottom: 0.5rem;
+    margin-left: 1rem;
+    // padding-top:16px;
+    // text-align: center;
+    background-size: contain;
+    border-top: solid 5px white;
+    
+}
+.present{ 
+    height: 48px;
+    width: 90%;
+    background-color: #79C143;
+    border-bottom-right-radius: 80px 100px; 
+    border-top-right-radius:80px 100px; 
+    background-image: url(../../../../assets/icon/bonhomme2v2.svg);
+    
+    background-repeat: no-repeat;
+    padding-left: 2rem;
+    margin-bottom: 0.5rem;  
+    margin-left: 3rem;
+    // text-align: center;
+    
+}
+.future{
+    height: 47px;
+    width: 90%;
+    background-color: #A8DCD8;
+    border-bottom-right-radius: 80px 100px; 
+    border-top-right-radius:80px 100px; 
+    background-image: url(../../../../assets/icon/Fleche_contourv3.svg);
+    background-repeat: no-repeat;
+    padding-left: 1rem;
+    margin-bottom: 0.5rem;
+    margin-left: 1rem;
+    // text-align: center;
+    margin-right: 50px;
+
+}

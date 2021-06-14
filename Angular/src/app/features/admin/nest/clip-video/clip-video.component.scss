@@ -1,0 +1,78 @@
+table {
+    width: 100%;
+ }
+ 
+  .IdColumn{
+    width: 25%;
+
+  }
+
+ th.mat-sort-header-sorted {
+   color: black;
+ }
+//  .th.mat-header-cell, td.mat-cell, td.mat-footer-cell {
+//    width: 1%;
+//  }
+
+ .Bouton{
+   background-color: green;
+   color: white;
+    border:none;
+   margin: 10px;
+ }
+ .mat-elevation-z8{
+   width: 100%;
+ }
+body{
+ background-size: cover;
+ 
+}
+
+ 
+
+
+
+.image{
+  width: 70px;
+  height: 70px;
+}
+
+.active{
+  color: green;
+}
+.desact{
+  color: red;
+}
+
+
+// #boutonRetour{
+//   color: white;
+//   background-color: green;
+//   font-size: 35px;
+//   margin-top: 2%;
+//   border: none;
+  
+//   // height: 2rm;
+// }
+.boutonAdd{
+  font-size: 25px;
+  color:white;
+  border: none;
+  }
+  // .boutonCree{
+  //   background-color: green;
+  // font-size: 35px;
+  //  }
+.card-body{
+  display: flex;
+    justify-content: space-between;
+    
+}
+#fermer{
+  background-color: red;
+  
+}
+#largeur{
+  background-color: green;
+  width: 50px;
+}

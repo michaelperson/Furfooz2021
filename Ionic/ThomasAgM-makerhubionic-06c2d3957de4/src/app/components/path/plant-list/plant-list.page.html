@@ -1,0 +1,76 @@
+<ion-content id="all">
+  <div class="divTitle">
+    <div class="divTitleAlerte">
+      <label class="title">{{"Menu.Flower" | translate}}</label>
+      <img *ngIf="!alertOn" (click)="openAlertDialog()" class="divButtonAlerte" src="../../../../assets/icon/path/alerte_sonore_desactive.svg">
+      <img *ngIf="alertOn" (click)="alertOn = false" class="divButtonAlerte" src="../../../../assets/icon/path/alerte_sonore_active.svg">
+    </div> 
+    <div class="list">
+        <div class="divButton">     
+          <img (click)="changeCat([1])" class="divButtonFiltre_amateur_icon" [src]="selectedCat.includes(1) && !selectedCat.includes(2) && !selectedCat.includes(3) ? 'assets/icon/path/amateur_vert.svg' : 'assets/icon/path/amateur.svg'" alt="Amateur">
+          <label class="divButtonFiltre_amateur_name">{{ 'Path.Flower' | translate }}</label>
+        </div> 
+        <div class="divButton">       
+          <img (click)="changeCat([1,2])" class="divButtonFiltre_averti_icon" [src]="selectedCat.includes(1) && selectedCat.includes(2) && !selectedCat.includes(3) ?'assets/icon/path/averti_vert.svg' : 'assets/icon/path/averti.svg'" alt="Initié">
+          <label class="divButtonFiltre_averti_name">{{ 'Path.Plant' | translate }}</label>
+        </div>
+        <div class="divButton">       
+          <img (click)="changeCat([1,2,3])"  class="divButtonFiltre_botaniste_icon" [src]="selectedCat.includes(1) && selectedCat.includes(2) && selectedCat.includes(3) ? 'assets/icon/path/botaniste_vert.svg' : 'assets/icon/path/botaniste.svg' " alt="Botaniste">
+          <label class="divButtonFiltre_botaniste_name">{{ 'Path.Tree' | translate }}</label>
+        </div>
+    </div>
+    <!-- <label >texte intro</label> -->
+    <!-- explications des filtre (nbr) -->
+  </div>
+  <div id="divAllList">
+    <div class="divWithTitleAndBoucle">
+      <label class="titleBoucle">{{ 'Path.Proximity' | translate }}</label>
+      <div class="boucle">
+        <div (click)="openDetails(c.id)" class="divImage"  *ngFor="let c of getProxiPlant()">
+            <img class="ImageImage" src={{plantService.urlImg}}{{c.imageUrl}}>
+            <div class="divBackgroundTransbox">
+                <label  class="ImageName" >{{getName(c)}}</label>
+            </div>
+        </div>
+        <label class="notProx" *ngIf="getProxiPlant().length == 0">{{ 'Path.NoPlants' | translate }}</label>
+      </div>
+    </div>
+    <div class="divWithTitleAndBoucle">
+      <label class="titleBoucle">{{ 'Path.Further' | translate }}</label>
+      <div class="boucle">
+          <div (click)="openDetails(c.id)" class="divImage" *ngFor="let c of getOtherPlant() | slice : 0 : visibleOtherPlant">          
+            <img class="ImageImage" src={{plantService.urlImg}}{{c.imageUrl}}>
+            <div class="divBackgroundTransbox">
+              <label class="ImageName">{{getName(c)}}</label>
+            </div>
+          </div>    
+        </div>  
+      </div>
+      <ion-infinite-scroll *ngIf="!noMoreData" threshold="10px" (ionInfinite)="doRefresh($event)">
+        <ion-infinite-scroll-content
+          loadingSpinner="bubbles">
+        </ion-infinite-scroll-content>
+    </ion-infinite-scroll>         
+  </div>
+    
+    <div class="list1"> 
+      <div class="divButtonSaison">     
+        <img (click)="changeSeason(1)" class="divButtonSaison_printemps" 
+        [src]="selectedSeason == 1 ?'assets/icon/path/printemps_vert.svg': 'assets/icon/path/printemps-gris-petit.svg'" alt="Printemps">
+        <!-- <label class="divButtonSaison_printemps_name"></label> -->
+      </div>  
+      <div class="divButtonSaison">     
+        <img (click)="changeSeason(2)" class="divButtonSaison_été" [src]="selectedSeason == 2 ?'assets/icon/path/ete-vert-petit.svg': 'assets/icon/path/ete_noir.svg'" alt="été">
+        <!-- <label class="divButtonSaison_printemps_name"></label> -->
+      </div>
+      <div class="divButtonSaison">     
+        <img (click)="changeSeason(3)" class="divButtonSaison_automne" [src]="selectedSeason == 3 ?'assets/icon/path/automne-vert-petit.svg': 'assets/icon/path/automne_noir1.svg'" alt="automne">
+        <!-- <label class="divButtonSaison_printemps_name"></label> -->
+      </div> 
+      <div class="divButtonSaison">     
+        <img (click)="changeSeason(0)" class="divButtonSaison_hiver" [src]="selectedSeason == 0 ?'assets/icon/path/hiver-vert-petit.svg': 'assets/icon/path/hiver_noir.svg'" alt="hiver">
+        <!-- <label class="divButtonSaison_printemps_name"></label> -->
+      </div> 
+    </div>
+    
+</ion-content>

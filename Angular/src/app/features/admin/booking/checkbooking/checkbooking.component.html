@@ -1,0 +1,100 @@
+<div class="row">
+    <div class="col-12 col-lg-6">
+        <div class="kt-portlet kt-portlet--tab">
+            <div class="kt-portlet__head">
+                <div class="kt-portlet__head-label">
+                    <span class="kt-portlet__head-icon kt-hide">
+                        <i class="la la-gear"></i>
+                    </span>
+                    <h3 class="kt-portlet__head-title">
+                        Scannez votre QR code
+                    </h3>
+                </div>
+            </div>
+            <div class="kt-portlet__body">
+                <zxing-scanner *ngIf="scannerEnabled" #scanner (scanSuccess)="scanSuccessHandler($event)">
+                </zxing-scanner>
+                <button (click)="enableScanner()" *ngIf="!scannerEnabled" type="button" class="btn btn-success">Afficher le scanner</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- <div class="row">
+    <div class="form-group col-md-12">
+        <h3>Chercher par référence</h3>
+        <input type="text" class="form-control" [(ngModel)]="reference">
+        <button (click)="checkByReference()" type="button" class="btn btn-success">Chercher</button>
+    </div>
+</div > -->
+
+<div class="row">
+    <div class="form-group col-md-12">
+        <h3>Chercher par adresse mail</h3>
+        <input type="text" class="form-control" [(ngModel)]="mailAdress">
+        <button (click)="checkByMail()" type="button" class="btn btn-success">Chercher</button>
+    </div>
+</div >
+
+<table class="table table-hover" *ngIf="booking != null">
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Référence</th>
+        <th scope="col">Type de ticket</th>
+        <th scope="col">Date de réservation</th>
+        <th scope="col">Nombre de personnes</th>
+        <th scope="col">Demande de guide</th>
+        <th scope="col">Total</th>
+        <th scope="col">Valider le ticket</th>
+    </tr>
+    <tr>
+        <th scope="row">{{booking.Id}}</th>
+        <td>{{booking.Reference}}</td>
+        <td *ngIf="!booking.CombinedMosan && !booking.CombinedVeves">Balade Simple</td>
+        <td *ngIf="booking.CombinedMosan">Combiné Mosan</td>
+        <td *ngIf="booking.CombinedVeves">Combiné Vêves</td>
+        <td>Le {{booking.Date | date : 'dd/MM/yy'}} à {{booking.Hour | number : '2.0-0'}}:{{booking.Minute | number : '2.0-0'}}</td>
+        <td>
+            <p>{{booking.NbAdults + booking.NbStudents + booking.NbKids}} personnes : </p>
+            <p>-{{booking.NbAdults}} adultes</p>
+            <p>-{{booking.NbStudents}} étudiants</p>
+            <p>-{{booking.NbKids}} enfants</p>
+        </td>
+        <td *ngIf="booking.WantAGuide">Oui</td>
+        <td *ngIf="!booking.WantAGuide">Non</td>
+        <td>{{booking.Total}}€</td>
+        <td *ngIf="!booking.IsCheck"><button class="btn btn-success" (click)="CheckBookingById(booking.Id, $event)">Valider</button></td>
+        <td *ngIf="booking.IsCheck" style="color: green;">Déjà validé <i style="color: green;" class="far fa-check-square"></i></td>
+    </tr>
+</table>
+<table class="table table-hover" *ngIf="bookings != null">
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Référence</th>
+        <th scope="col">Type de ticket</th>
+        <th scope="col">Date de réservation</th>
+        <th scope="col">Nombre de personnes</th>
+        <th scope="col">Demande de guide</th>
+        <th scope="col">Total</th>
+        <th scope="col">Valider le ticket</th>
+    </tr>
+    <tr *ngFor="let booking of bookings">
+        <th scope="row">{{booking.Id}}</th>
+        <td>{{booking.Reference}}</td>
+        <td *ngIf="!booking.CombinedMosan && !booking.CombinedVeves">Balade Simple</td>
+        <td *ngIf="booking.CombinedMosan">Combiné Mosan</td>
+        <td *ngIf="booking.CombinedVeves">Combiné Vêves</td>
+        <td>Le {{booking.Date | date : 'dd/MM/yy'}} à {{booking.Hour | number : '2.0-0'}}:{{booking.Minute | number : '2.0-0'}}</td>
+        <td>
+            <p>{{booking.NbAdults + booking.NbStudents + booking.NbKids}} personnes : </p>
+            <p>-{{booking.NbAdults}} adultes</p>
+            <p>-{{booking.NbStudents}} étudiants</p>
+            <p>-{{booking.NbKids}} enfants</p>
+        </td>
+        <td *ngIf="booking.WantAGuide">Oui</td>
+        <td *ngIf="!booking.WantAGuide">Non</td>
+        <td>{{booking.Total}}€</td>
+        <td><button class="btn btn-success" (click)="CheckBookingById(booking.Id, $event)">Valider</button></td>
+    </tr>
+</table>
+<button (click)="RAZ()" type="button" class="btn btn-success">Effacer la sélection</button>

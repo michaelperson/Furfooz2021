@@ -1,0 +1,109 @@
+<!-- http://localhost:4200/public/booking -->
+
+<header>
+
+</header>
+
+<main>
+    <div class="title">
+        <h1>Choix des tickets</h1>
+    </div>
+    <div class="content">
+        <div class="content_ticket">
+            <i class="fas fa-male"></i>
+            <h4>Ticket balade simple</h4>
+            <h6>Tarif réduit au-delà de 15 personnes</h6>
+
+            <div class="content_ticket_tariff">
+                <p class="type">Adulte</p>
+                <p class="price">{{this.prixAdulteFurfooz}}€</p>
+                <input [(ngModel)]="nbAdulteFurfooz" (change)="onChange()" type="number" name="" id="" value="0" min="0">
+                
+            </div>
+            <div class="content_ticket_tariff">
+                <p class="type">Enfant (6 - 12 ans)</p>
+                <p class="price">{{this.prixEnfantFurfooz}}€</p>
+                <input [(ngModel)]="nbEnfantFurfooz" (change)="onChange()" type="number" name="" id="" value="0" min="0">
+            </div>
+            <div class="content_ticket_tariff">
+                <p class="type">Étudiant</p>
+                <p class="price">{{this.prixEtudiantFurfooz}}€</p>
+                <input [(ngModel)]="nbEtudiantFurfooz" (change)="onChange()" type="number" name="" id="" value="0" min="0">
+            </div>
+        </div>
+
+        <div class="content_ticket">
+            <i class="fab fa-fort-awesome"></i>
+            <h4>Ticket Furfooz + Château de Vêves</h4>
+            <h6>Tarif réduit au-delà de 15 personnes</h6>
+
+            <div class="content_ticket_tariff">
+                <p class="type">Adulte</p>
+                <p class="price">{{this.prixAdulteVeves}}€</p>
+                <input [(ngModel)]="nbAdulteVeves" (change)="onChange()" type="number" name="" id="" value="0" min="0">
+            </div>
+            <div class="content_ticket_tariff">
+                <p class="type">Enfant (6 - 12 ans)</p>
+                <p class="price">{{this.prixEnfantVeves}}€</p>
+                <input [(ngModel)]="nbEnfantVeves" (change)="onChange()" type="number" name="" id="" value="0" min="0">
+            </div>
+        </div>
+
+        <div class="content_ticket">
+            <i class="fas fa-dungeon"></i>
+            <h4>Ticket Furfooz + Maison Médiévale Mosan</h4>
+
+            <div class="content_ticket_tariff">
+                <p class="type">Adulte</p>
+                <p class="price">{{this.prixAdulteMosan}}€</p>
+                <input [(ngModel)]="nbAdulteMosan" (change)="onChange()" type="number" name="" id="" value="0" min="0">
+            </div>
+            <div class="content_ticket_tariff">
+                <p class="type">Enfant (6 - 12 ans)</p>
+                <p class="price">{{this.prixEnfantMosan}}€</p>
+                <input [(ngModel)]="nbEnfantMosan" (change)="onChange()" type="number" name="" id="" value="0" min="0">
+            </div>
+        </div>
+        
+    </div>
+    
+    <p id="total">Total : {{this.total}}€</p>
+
+    <div class="title">
+        <h1>Date de la visite</h1>
+    </div>
+    <div class="content">
+        <div class="content_date">
+            <input type="date">
+            <input type="time">
+        </div>
+    </div>
+
+    <div class="title">
+        <h1>Questions pratiques</h1>
+    </div>
+    <div class="content">
+        <div class="content_guide">
+            <select name="" id="">
+                <option value="1">Guide</option>
+                <option value="0">Pas guide</option>
+            </select>
+            <p>
+                *Les guides ne sont pas disponibles tous les jours, faire une demande ne garantit pas d'en avoir un.
+                Si un guide est disponible lors de votre visite, une compensation vous sera demandée sur place.
+            </p>
+        </div>
+
+        <div class="content_sncb">
+            <input id="sncb" type="checkbox">
+            <label for="sncb">Je viens en train pour pas dégommer ma caisse</label>
+        </div>
+        
+    </div>
+
+    <div class="content">
+        <button class="bouton_reserver">Réserver</button>
+    </div>
+
+    <div style="height : 200px; width : 100%;"></div>
+</main>

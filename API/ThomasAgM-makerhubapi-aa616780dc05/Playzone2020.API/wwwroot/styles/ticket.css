@@ -1,0 +1,146 @@
+/* Mise en page globale et resset minimum */
+
+html{
+    background-color :#fff;
+    color: #000;
+    margin: 1% 3.5% 1% 3.5%;
+    font-size :14pt;
+    height: 100%;
+    font-family: 'Open Sans', sans-serif;
+}
+body{
+    display: block;
+    margin: 0;
+    min-height: 100%;
+}
+.ticket_footer 
+{
+    position: absolute; bottom: 0; /* pour fixer les CGV dans le bas */
+}
+h1{
+    text-align: center;
+    margin: 0;
+}
+h2{
+    font-size: 18pt;
+    margin: 0;
+    font-weight: bod;
+
+}
+p{display: block;
+    margin-block-start: 5pt;
+    margin-block-end: 5pt;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;}
+.ticket_section{
+    border-bottom: dashed;
+    padding-bottom: 20pt;
+}
+.ticket_full_larg{
+    width: 97%;
+    margin: 0 1.5% 0 1.5%;
+    padding: 0;  
+    border: 0;
+}
+.ticket_demi_larg{
+    width: 47%;
+    margin: 0 1.5% 0 1.5%;
+    padding: 0;  
+    border: 0;
+}
+.ticket_tier_larg{
+    width: 30.33%;
+    margin: 0 1.5% 0 1.5%;
+    padding: 0;  
+    border: 0;
+}
+.ticket_ticket, .ticket_date{
+    display: flex;
+}
+.ticket_rap{
+    display: flex;
+    text-align: center;
+    border:solid #d12d24 ;
+    margin-top: 20pt;
+}
+.ticket_ticket_row{
+    display: flex;
+    flex-direction: column;
+    max-height: 100%;
+}
+img{
+    width: 100%;
+} 
+.ticket_date{
+    background-color: #A8DCD8;
+    padding-top: 5pt;
+    margin: 0 1.5% 0 1.5%;
+}
+table, tr, td, tbody{
+    border:0;
+    margin: 0;
+    padding: 0;
+    border-spacing:0;
+}
+/* definition du contenu block */
+
+.ticket_icon{
+    padding: 10pt;
+    flex: 1;
+}
+.ticket_rap_txt{
+    flex: 70%;
+}
+.ticket_qr_img{
+    flex: 50%;
+}
+.ticket_date>div{
+    vertical-align: middle;
+}
+.ticket_center{
+    text-align: center;
+}
+.qrcode p{
+    text-align: center;
+}
+.qrcode_visu{
+    display: flex;
+}
+.qrcode_visu>div{
+    display:flex;
+}
+.qrcode_visu img{
+    vertical-align: middle;
+}
+.ticket_img_vert{
+    fill:  #79C143
+}
+.ticket_adresse{
+    display: flex;
+    font-size: 14pt;
+}
+.ticket_adresse_tel{
+    margin-left: auto;
+}
+.ticket_bas{
+    display: flex;
+    align-content: flex-end;
+    margin-top:auto;
+}
+/* typo */
+.ticket_18{
+    font-size: 18pt;
+}
+.ticket_12{
+    font-size: 10pt;
+}
+.ticket_7{
+    font-size: 8pt;
+}
+.ticket_bold{
+    font-weight: bold;
+}
+.ticket_red{
+    color:#d12d24;
+    font-weight: bold;
+}

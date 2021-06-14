@@ -1,0 +1,87 @@
+{
+    "General":{
+        "Close" : "Fermer"
+    },
+    "Menu": {
+        "Home": "Accueil",
+        "Map": "Carte",
+        "Animals": "Faune",
+        "Flora" : "Flore",
+        "Points of Interest": "Points d'intérêts",
+        "Restauration" : "Restauration",
+        "Flobette": "La Flobette",
+        "Settings": "Réglages",
+        "Information" : "Informations",
+        "Flower" : "Sentier botanique",
+        "DeleteLib" : "Supprimer de la bibliothèque"
+    },
+    "Map": {
+        "ShowPoi": "Voir les points d'intérêts",
+        "Legend" : "Légende"
+    },
+    "Schedule" : {
+        "Schedule" : "Horaire",
+        "Week" : "Semaine",
+        "Jan" : "Janvier",
+        "Feb" : "Février",
+        "Mar" : "Mars",
+        "Apr" : "Avril",
+        "May" : "Mai",
+        "Jun" : "Juin",
+        "Jul" : "Juillet",
+        "Aug" : "Août",
+        "Sep" : "Septembre",
+        "Oct" : "Octobre",
+        "Nov" : "Novembre",
+        "Dec" : "Decembre",
+        "Closed" : "Fermé",
+        "Reservation" : "Réservation"
+    },
+    "Flobette" : {
+        "Flobette" : "La Flobette",
+        "Dish" : "Plat",
+        "Price" : "Prix"
+    },
+    "Path" : {
+        "Proximity" : "À proximité de vous",
+        "Further" : "Dans 50 mètres ou plus",
+        "Tree" : "Botaniste",
+        "Flower" : "Amateur",
+        "Plant" : "Initié",
+        "NoPlants" : "Il n'y a pas de plantes à proximité"
+    },
+    "SeasonDialog" : {
+        "Intro" : "Notre flore vous montre les plus belles facettes de l'",
+        "Intro2" : "Notre flore vous montre les plus belles facettes du ",
+        "FlavorText" : "Les espèces des autres saisons sont accessibles via ces icônes",
+        "Winter" : "Hiver",
+        "Autumn" : "Automne",
+        "Spring" : "Printemps",
+        "Summer" : "Été"
+    },
+    "Notif" : {
+        "AlertNotif" : "Souhaitez-vous recevoir une alerte lorsque vous êtes proximité d’une plante remarquable?"
+    },
+    "Details" : {
+        "Audio" : "Guide audio",
+        "ReadLater" : "Lire plus tard",
+        "Desc" : "Description",
+        "Env" : "Usages",
+        "Loc" : "Écologie et habitat",
+        "NoDesc" : "Il n'y a pas de description disponible",
+        "NomLatin": "Nom Latin"
+    }
+    ,
+    "IntroModal" : {
+        "Intro": "Bienvenue dans le monde féérique de Furfooz. Cette application va vous assister lors du parcours pour ne rien rater de ses merveilles.",
+        "Pres1" : "Nous protégeons la biodiversité et des espaces protégés où la nature est prioritaire.",
+        "Pres2" : "Le parcours fait une boucle de 3,5 km,  il faut environ 2 heures pour le parcourir",
+        "start" : "Commencer",
+        "NoDesc" : "Il n'y a pas de description disponible"
+    },
+    "ListeCameras" : {
+        "Titre": "Visionner les clips vidéos"
+    }
+    
+    
+}

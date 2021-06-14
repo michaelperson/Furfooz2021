@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="Titre">{{"ListeCameras.Titre" | translate}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+ <ion-item class="ion-no-padding" > 
+   <div class="wrapper"> 
+    <ion-list class="ion-list-no-padding"> 
+   <ul>
+     <li class="ListCam"  *ngFor="let Cam of ListeCamera"><img style="height: 150px;   margin:-4px auto;" class="VideoThumbnail"  (click)="GetCam(Cam.Id)" class="ImgCam" src="{{Cam.LienImg}}" >      <p class="VideoTitle"> {{getName(Cam)}} </p> </li>
+
+    </ul>
+  </ion-list>
+  </div>
+ 
+
+
+ </ion-item>
+
+</ion-content>

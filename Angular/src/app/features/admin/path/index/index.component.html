@@ -1,0 +1,34 @@
+
+<div class="titre form-group">
+    <div class="titreDiv">
+        <h1>Sentier</h1>
+    </div>
+    <div class="text-right">
+        <button routerLink="/admin/path/add" class="btn btn-success add"><span class="fas fa-plus"></span></button>
+    </div>
+</div>
+
+<table id="MyPlantTable" *ngIf="plantList" datatable [dtOptions]="options">
+    <thead>
+        <tr>
+            <th>Miniature</th>
+            <th>Nom</th>
+            <th>Catégories</th>
+            <th data-orderable="false">Désactiver</th>
+            <th data-orderable="false">Modifier</th>
+        </tr>
+    </thead>
+    <tbody >
+        <tr *ngFor="let p of plantList">
+            <td><img src={{plantServ.baseUrl}}{{p.imageUrl}} id="miniature" *ngIf="p.imageUrl"></td>
+            <td>{{p.name_fr}}</td>
+            <td>{{getName(p?.categoryPlant_id)}}</td>
+            <td><button [class]="p.isDeleted?'btn btn-success':'btn btn-danger'" (click)="SoftDelete(p.id)">
+                <span [class]="p.isDeleted?'fas fa-history':'fas fa-trash'"></span>
+            </button></td>
+            <td><button class="btn btn-info" [routerLink]="['/admin/path/update',p.id]"><span class="fas fa-edit update"></span></button></td>
+        </tr>
+    </tbody>
+</table>
+
+

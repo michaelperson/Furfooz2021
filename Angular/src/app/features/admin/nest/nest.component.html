@@ -1,0 +1,84 @@
+<body>
+  <div class="card">
+      <div class="card-body">
+          <h4>Les Cameras</h4>
+          <router-outlet></router-outlet>
+          <div class="boutonCree">
+            <button id="boutonAdd" (click)="addCamera();">+</button>
+          </div>
+          
+      </div>
+  </div>
+  
+  <div>
+      <table mat-table [dataSource]="dataSource" >
+  
+          <!--- Note that these columns can be defined in any order.
+                The actual rendered columns are set as a property on the row definition" -->
+        
+          <!-- Position Column -->
+          <ng-container matColumnDef="Id">
+            <th mat-header-cell *matHeaderCellDef> Id </th>
+            <td mat-cell *matCellDef="let element"> {{element.Id}} </td>
+          </ng-container>
+        
+          <!-- Name Column -->
+          <ng-container matColumnDef="Nom_Fr">
+            <th mat-header-cell *matHeaderCellDef> Nom Français </th>
+            <td mat-cell *matCellDef="let element"> {{element.Nom_Fr}} </td>
+          </ng-container>
+
+           <!-- Name Column -->
+           <ng-container matColumnDef="Nom_En">
+            <th mat-header-cell *matHeaderCellDef> Nom Anglais </th>
+            <td mat-cell *matCellDef="let element"> {{element.Nom_En}} </td>
+          </ng-container>
+
+           <!-- Name Column -->
+           <ng-container matColumnDef="Nom_Nl">
+            <th mat-header-cell *matHeaderCellDef> Nom Neerlandais </th>
+            <td mat-cell *matCellDef="let element"> {{element.Nom_Nl}} </td>
+          </ng-container>
+        
+          <!-- Weight Column -->
+          <ng-container matColumnDef="Emplacement">
+            <th mat-header-cell *matHeaderCellDef> Emplacement </th>
+            <td mat-cell *matCellDef="let element"><a href={{element.Emplacement}} add target="_blank">{{element.Emplacement}}</a></td>
+          </ng-container>
+          
+        
+          <!-- Symbol Column -->
+          <ng-container matColumnDef="EstActif">
+            <th mat-header-cell *matHeaderCellDef> Etat </th>
+            <td mat-cell *matCellDef="let element"> 
+            <p class="active" *ngIf="element.EstActif; else elseBlock">Activée</p>
+            <ng-template  #elseBlock><p class="desact">Désactivée</p></ng-template>
+            </td>
+          </ng-container>
+          
+          <ng-container matColumnDef="LienImg">
+            <th mat-header-cell *matHeaderCellDef> Miniature </th>
+            <td mat-cell *matCellDef="let element"><img  class="image" src={{element.LienImg}}></td>
+          </ng-container>
+  
+          <!-- Symbol Column -->
+          <ng-container matColumnDef="Bouton">
+              <th mat-header-cell *matHeaderCellDef></th>
+              <td mat-cell *matCellDef="let element" class="BoutonTd">
+                  <button class="Bouton" (click)="openDetail(element.Id)">
+                      Modifier 
+                      <!-- bouton 1 -->
+                  </button>
+                  <button class="Bouton" [routerLink]="['clipVideo',element.Id]">
+                      Clip
+                      <!-- bouton 2 -->
+                  </button>
+              </td>
+            </ng-container>
+        
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+  </div>
+
+</body>

@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{'Settings.Title' | translate}}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="close()">{{'General.Close' | translate}}</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-radio-group [(ngModel)]="selectedLanguage">
+      <ion-list-header>
+        <ion-label>{{'Settings.Header' | translate}}</ion-label>
+      </ion-list-header>
+  
+      <ion-item>
+        <ion-label>{{'Settings.French' | translate}}</ion-label>
+        <ion-radio (click)="setfr()" slot="start" value="fr"></ion-radio>
+      </ion-item>
+  
+      <ion-item>
+        <ion-label>{{'Settings.Dutch' | translate}}</ion-label>
+        <ion-radio (click)="setnl()" slot="start" value="nl"></ion-radio>
+      </ion-item>
+  
+      <ion-item>
+        <ion-label>{{'Settings.English' | translate}}</ion-label>
+        <ion-radio (click)="seten()" slot="start" value="en"></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+  </ion-list>
+</ion-content>
+
+<ion-content>
+  <ion-list>
+    <ion-radio-group [(ngModel)]="units">
+      <ion-list-header>
+        <ion-label>Units</ion-label>
+      </ion-list-header>
+  
+      <ion-item>
+        <ion-label>Km</ion-label>
+        <ion-radio (click)="setkm()" slot="start" value="km"></ion-radio>
+      </ion-item>
+  
+      <ion-item>
+        <ion-label>Miles</ion-label>
+        <ion-radio (click)="setml()" slot="start" value="miles"></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+  </ion-list>
+</ion-content>

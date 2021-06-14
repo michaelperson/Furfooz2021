@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-item *ngIf="ListClipsVideo">
+      <p class="titleClip">{{getName(ListClipsVideo[compteur])}}</p>
+    </ion-item>
+  </ion-toolbar>
+</ion-header>
+
+<ion-item class="ion-padding-start">
+  <div class="myOverlay">
+    <div class="PageClick">
+      <p class="buttonclass" (click)="Camera(id)" class="card-title">Cameras</p>
+    </div>
+    <div class="PageEnCours">
+      <p class="card-title"> Clip Vidéos </p>
+    </div>
+
+  </div>
+</ion-item>
+
+
+<ion-content [scrollEvents]="true">
+  <div class="clipPosition">
+    <div class="iframecontainer" *ngIf="ListClipsVideo?.length">
+
+      <iframe id="lecteurvideo" [src]="getSafeUrl(ListClipsVideo[compteur].Lien)">
+      </iframe>
+      <div class="containerNom">
+        <button class="playpause playpauseleft" (click)="prev()"></button>
+        <p class="NomVideo"> {{getName(ListClipsVideo[compteur])}} </p>
+        <button class="playpause playpauseright" (click)="next()"></button>
+      </div>
+    </div>
+  </div>
+</ion-content>

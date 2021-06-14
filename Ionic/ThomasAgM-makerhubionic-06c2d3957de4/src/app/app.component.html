@@ -1,0 +1,21 @@
+<ion-app>
+
+  <div class="main">
+  <ion-router-outlet id="main"></ion-router-outlet>
+</div>
+  <footer id="footer">
+    <div class="divButton" (click)="goToMap()">     
+      <img class= "divButton_bonhomme" src="../assets/icon/path/bonhomme_blanc.svg" alt="accueil">
+    </div> 
+    <div class="divButton"(click)="goToCameras()">     
+      <img class= "divButton_camera" src="../assets/icon/path/camera_blanc.svg" alt="carte">
+    </div> 
+    <div class="divButton" (click)="goToPlantList()">     
+      <img class= "divButton_fleurMenu" src="../assets/icon/path/fleur_menu.svg" alt="fleur_menu">
+    </div> 
+    <div class="divButton">     
+      <img class= "divButton_bibliotheque" (click)="goToLibrary()" src="../assets/icon/path/bibliotheque.svg" alt="bibliotheque">
+    </div> 
+
+  </footer>
+</ion-app>

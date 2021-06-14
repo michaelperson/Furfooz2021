@@ -1,0 +1,24 @@
+  <header>
+    <label id="title">{{getName(poi)}}</label>
+    <button (click)="close()" class="FermerLeDetail">
+      <img src="../../../../../assets/icon/path/croix_bouton.svg">
+    </button>
+  </header>
+  
+    <ion-content id="content">
+      <img class="PictureTerme" src={{poiService.urlImg}}{{poi?.ImageUrl}}>
+    <div id="divIcon">
+      <button class="bouton_d_ecoute bouton_interaction" (click)="readDescription(poi, getLanguages())" *ngIf="!vocalOn">{{ 'Details.Audio' | translate }}</button>
+      
+      <button class="bouton_interaction stop_audio" (click)="stopVocal()" *ngIf="vocalOn"></button> 
+
+      <button class="bouton_interaction bouton_de_bibliotheque" (click)="saveData(poi)" *ngIf="!poi?.isSaved || null">{{ 'Details.ReadLater' | translate }}</button>
+      <button class="bouton_interaction trashIcon" (click)="deleteFromPoiList(poi.Id)" *ngIf="poi?.isSaved">{{"Menu.DeleteLib" | translate}}</button>
+    </div>
+  
+   <div class="text">
+    <h1 class="textTitre">{{'Details.Desc' | translate}}</h1>
+    <p [innerHTML]="getDescription(poi)"></p>
+    </div>
+  </ion-content>
+  

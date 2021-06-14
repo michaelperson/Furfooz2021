@@ -1,0 +1,66 @@
+<!-- Fiche florale -->
+<ng-container *ngIf="plant">
+<!-- Entête de page -->
+<header>
+  <label id="title" *ngIf="plant">{{getName(plant)}}</label>
+  <button (click)="close()" class="FermerLeDetail">
+    <img src="../../../../assets/icon/path/croix_bouton.svg">
+  </button>
+</header>
+
+<!-- Utilisation d'ionic -->
+<ion-content id="content">
+
+  <!-- insertion de la photo -->
+  <img class="PhotoDeLaFleur" src={{plantService.urlImg}}{{plant?.imageUrl}} alt={{plant?.name_la}}>
+  
+  <!-- Création des boutons -->
+  <div id="divIcon">
+    <!-- <button class="bouton_interaction bouton_d_ecoute" (click)="readDescription(plant, codeLanguage)">{{ 'Details.Audio' | translate }}</button> -->
+    <button [disabled]="this.selectedLanguage == 'fr' && !this.plant.description1_fr || this.selectedLanguage == 'nl' && !this.plant.description1_nl || this.selectedLanguage == 'en' && !this.plant.description1_en"
+    class="bouton_d_ecoute bouton_interaction" 
+    (click)="readDescription(plant, codeLanguage)" 
+    *ngIf="!vocalOn">{{ 'Details.Audio' | translate }}</button>
+
+    <button class="bouton_interaction stop_audio" (click)="stopVocal()" *ngIf="vocalOn"></button> 
+
+    <button class="bouton_interaction bouton_de_bibliotheque" (click)="saveData(plant)" *ngIf="!plant?.isSaved || null">{{ 'Details.ReadLater' | translate }}</button>
+    <button class="bouton_interaction trashIcon" (click)="deleteFromList(plant.id)" *ngIf="plant?.isSaved">Supprimer de la librairie</button>
+  </div>
+
+  <!-- nom latin -->
+  <!-- <label id="pDescription">{{ plant.name_la }}</label> -->
+
+  <div *ngIf="plant">
+    <h4 id="descriptionTitle">{{ 'Details.NomLatin' | translate }}</h4>
+      <div id="description">
+      <p id="pDescription">{{ plant.name_la}}</p>
+      </div>
+  </div> 
+
+  <!-- paragraphe "description" -->
+  <div *ngIf="plant">
+    <h4 id="descriptionTitle">{{ 'Details.Desc' | translate }}</h4>
+    <div id="description">
+      <p id="pDescription" *ngIf="getDescription1(plant)">{{getDescription1(plant)}}</p>
+      <p id="pDescription" *ngIf='getDescription1(plant) == ""'>{{"Details.NoDesc" | translate}}</p>
+    </div>
+  </div>
+  <!-- paragraphe "usages" -->
+  <div *ngIf="plant">
+    <h4 id="descriptionTitle">{{ 'Details.Env' | translate }}</h4>
+    <div id="description">
+      <p id="pDescription" *ngIf="getDescription2(plant)">{{getDescription2(plant)}}</p>
+      <p id="pDescription" *ngIf='getDescription2(plant) == ""'>{{"Details.NoDesc" | translate}}</p>      
+    </div>
+  </div>
+  <!-- paragraphe "Écologie et habitat" -->
+  <div *ngIf="plant">
+    <h4 id="descriptionTitle">{{ 'Details.Loc' | translate }}</h4>
+    <div id="description">
+      <p id="pDescription" *ngIf="getDescription3(plant)">{{getDescription3(plant)}}</p>
+      <p id="pDescription" *ngIf='getDescription3(plant) == ""'>{{"Details.NoDesc" | translate}}</p>
+    </div>
+  </div>
+ </ion-content> 
+</ng-container>

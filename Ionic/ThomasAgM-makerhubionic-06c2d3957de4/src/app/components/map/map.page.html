@@ -1,0 +1,19 @@
+<header>
+  <ion-toolbar> 
+    <ion-title>{{'Menu.Map' | translate}}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="GoToList()"> <img class="BoutonMap" src="../../../assets/icon/parcours_icon.svg" alt=""> </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button (click)="setPosition()">
+        <ion-icon name ="navigate" slot="start" color="dark"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</header>
+
+<ion-content>
+ <div id="myMap" ></div>
+</ion-content>
+<!-- 
+<ion-button color="success" (click)="presentModal()">{{'Map.ShowPoi' | translate}}</ion-button> -->

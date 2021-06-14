@@ -1,0 +1,88 @@
+{
+    "General":{
+        "Close" : "Sluiten"
+        
+    },
+    "Menu": {
+        "Home": "Home",
+        "Map": "Kaart",
+        "Animals": "Fauna",
+        "Flora" : "Flora",
+        "Points of Interest": "Interessante locatie",
+        "Restauration" : "Restaurant & ander",
+        "Flobette" : "De Flobette",
+        "Settings": "Instellingen",
+        "Information" : "Informatie",
+        "Flower" : "Botanisch pad",
+        "DeleteLib" : "Verwijderen uit bibliotheek"
+
+    },
+    "Map": {
+        "ShowPoi": "Tonen interessante locatie"
+    },
+    "Schedule" : {
+        "Schedule" : "Schema",
+        "Week" : "Week",
+        "Jan" : "Januari",
+        "Feb" : "Februari",
+        "Mar" : "Maart",
+        "Apr" : "April",
+        "May" : "Mei",
+        "Jun" : "Juni",
+        "Jul" : "Juli",
+        "Aug" : "Augustus",
+        "Sep" : "September",
+        "Oct" : "Oktober",
+        "Nov" : "November",
+        "Dec" : "December",
+        "Closed" : "Dicht",
+        "Reservation" : "Reservatie"
+    },
+    "Flobette" : {
+        "Flobette" : "De Flobette",
+        "Dish" : "Gerecht",
+        "Price" : "Prijs"
+    },
+    "Path" : {
+        "Proximity" :  "In uw buurt",
+        "Further" : "In 50 meters of meer",
+        "Tree" : "Botanist",
+        "Flower" : "Amateur",
+        "Plant" : "Novice",
+        "NoPlants" : "Er zijn geen planten in de buurt"
+    },
+    "SeasonDialog" : {
+        "Intro" : "Onze flora laat je de mooiste facetten van zien ",
+        "Intro2" : "Onze flora laat je de mooiste facetten van zien ",
+        "FlavorText" : "Via deze iconen zijn soorten uit andere seizoenen toegankelijk",
+        "Winter" : "Winter",
+        "Autumn" : "Herfst",
+        "Spring" : "Lente",
+        "Summer" : "Zommer"
+    },
+    "Notif" : {
+        "AlertNotif" : "Wilt U verwittigd worden wanneer U in de buurt bent van een merkwaardige plant ?"
+    },
+    "Details" : {
+        "Audio" : "Audio gids",
+        "ReadLater" : "Lees later",
+        "Desc" : "Beschrijving",
+        "Env" : "Ecologie",
+        "Loc" : "Plaats",
+        "NoDesc" : "Er is geen verslag in uw taal",
+        "NomLatin": "Latijnse Naam"
+    }
+    ,
+    "IntroModal" : {
+        "Intro": "Welkom in de magische wereld van Furfooz. Deze applicatie helpt u tijdens de cursus om geen enkele van zijn wonderen te missen.",
+        "Pres1" : "We beschermen de biodiversiteit en beschermde gebieden waar natuur een prioriteit is.",
+        "Pres2" : "De pad maakt een lus van 3,5 km, het duurt ongeveer 2 uur om deze af te leggen",
+        "start" : "Aanvang",
+        "NoDesc" : "Er is geen verslag in uw taal"
+    },
+    "ListeCameras" : {
+        "Titre": "Bekijk de videoclips"
+        
+    }
+    
+}

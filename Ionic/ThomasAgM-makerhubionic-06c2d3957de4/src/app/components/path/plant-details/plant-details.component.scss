@@ -1,0 +1,145 @@
+
+/* SUPPRIMER LA BORDURE JAUNE LORS DU CLIC */
+:focus {
+    outline: none;
+    }
+/* ////////////// */
+
+/* mis-en-page de l'entête */
+header{
+    /* height :8%; */
+    background-color:white;
+    display: flex;
+    justify-content: end; 
+    /* border: 1px solid blue;   */
+    align-items: center;
+    margin-top: 2%;
+    margin-bottom: 1%;
+    width: 100%;
+}
+
+/* Positionnement de la croix permettant de fermé le détail */
+.FermerLeDetail{
+    background-color: rgba(255, 255, 255, 0);    
+    height: 5%;
+    /* border: 1px solid violet;  */
+    margin-right: 2%;
+    margin-top: 0.5%;
+    font-size: 120%;
+    position: absolute;
+    right: 0%;
+    width: 10%;
+}
+.FermerLeDetail img{
+    height: 75%;
+}
+
+/* taille de la photo */
+.PhotoDeLaFleur{
+    margin-bottom: 4.5%;
+    width: 100%;
+}
+
+/* Police de l'entête */
+#title{
+    width: 75%; 
+    font-family:"benchNine";
+    font-style: bold;
+    text-align: center;
+    padding-left: 3%; 
+    color: black;
+    font-size: 34px;
+    letter-spacing: 0.02em;
+    /* border: 1px solid red;    */
+    margin:auto;
+    position: relative;
+}
+
+/* taille de la div contenant les boutons */
+#divIcon{
+    display: flex;
+    justify-content: space-around;
+    margin: 0% 10%;
+}
+
+/* réglage commun au 2 boutons */
+.bouton_interaction{
+    display: inline-block;
+    box-sizing: border-box;
+    width: 40%;
+    min-width: 140px;
+    height: 3rem;
+    border: solid 1.5px #424242;
+    border-radius: 10px;
+    font-size: 1.1em;
+   text-align: center;
+}
+
+/* réglage spécifique du bouton d'audioguide */
+.bouton_d_ecoute{
+    padding: 2px 3.7rem 2px 2px;
+   background: no-repeat right 3rem url("../../../../assets/icon/path/guide_audio.svg");
+   background-position: 93%;
+   margin-right: 2px;
+  }
+
+/* réglage spécifique du bouton de la bibliothèque*/
+  .bouton_de_bibliotheque{
+    padding: 2px 2px 2px 3.7rem;
+   background: no-repeat right 3rem url("../../../../assets/icon/path/lire_plus_tard2.svg");
+   background-position: 7%;
+   margin-left: 2px;
+  }
+
+/* réglage du bouton lorsque l'audioguide est déclenché*/
+  .stop_audio{
+    text-align: center;
+    padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+    background: no-repeat right 3rem url("../../../../assets/icon/path/stop_audio.svg");
+    background-position: 50%;
+  }
+
+/* mise en page des titres de paragraphe*/
+#descriptionTitle{
+    text-align: left;
+    color: #185A74;
+    margin-bottom: 1.5%;
+    margin-left: 6%;
+    margin-top: 5%;
+    font-family:'Open Sans',-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;;
+    font-style: normal;
+    font-weight: bold;
+    width: 100%;
+    height: 20px;
+    font-size: 20px;
+    top: 427px;
+}
+/* mise en page des paragraphes*/
+#description{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    left: 30px;
+    top: 5%;
+    font-family: 'Open Sans',-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 25px;
+    margin-right: 10%;
+    margin-left: 6%;
+    margin-bottom: -4.5%;
+}
+#pDescription{
+    width: 100%;
+}
+
+.trashIcon{
+    text-align: left;
+    padding: 3px 2px 3px 3.7rem;
+
+    background: no-repeat left 3rem url("../../../../assets/icon/path/trash.svg");
+    background-size: 22%;
+    background-position: 7%;
+    font-size: 13px;
+}

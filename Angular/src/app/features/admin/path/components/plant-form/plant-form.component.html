@@ -1,0 +1,163 @@
+<form [formGroup]="fg" (ngSubmit)="submit()">
+    <div class="mt-3">
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link active" data-toggle="tab" href="#frDesc">Français</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#nlDesc">Néerlandais</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#enDesc">Anglais</a>
+            </li>
+        </ul>
+        <div class="tab-content form-group">
+            <div id="frDesc" class=" tab-pane active">
+                <label class="label-control">Nom : </label>
+                <input type="text" class="form-control" formControlName="name_fr">
+                <p class="label-control">Description :</p>
+                <!-- <editor [apiKey]="'TINYMCE_KEY' | env" [init]="editorOptions" formControlName="description1_fr"></editor> -->
+                <textarea formControlName="description1_fr" cols="30" rows="10"></textarea>
+                <div>
+                    <button type="button" class="btn btn-info btn-block mb-1" data-toggle="collapse"
+                        data-target="#collapseDescFr">Ajouter une description</button>
+                    <div class="collapse" id="collapseDescFr">
+                        <!-- <editor [apiKey]="'TINYMCE_KEY' | env" [init]="editorOptions" formControlName="description2_fr"></editor> -->
+                        <textarea formControlName="description2_fr" cols="30" rows="10"></textarea>
+                        <div>
+                            <button type="button" class="btn btn-info btn-block mb-1" data-toggle="collapse"
+                                data-target="#collapseDescFr2">Ajouter une description</button>
+                            <div class="collapse" id="collapseDescFr2">
+                                <!-- <editor [apiKey]="'TINYMCE_KEY' | env" [init]="editorOptions" formControlName="description3_fr"></editor> -->
+                                <textarea formControlName="description3_fr" cols="30" rows="10"></textarea>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div id="nlDesc" class=" tab-pane fade">
+                <label class="label-control">Nom : </label>
+                <input type="text" class="form-control " formControlName="name_nl">
+                <label class="label-control">Description :</label>
+                <!-- <editor  [apiKey]="'TINYMCE_KEY' | env" [init]="editorOptions" formControlName="description1_nl"></editor> -->
+                <textarea formControlName="description1_nl" cols="30" rows="10"></textarea>
+                <div>
+                    <button type="button" class="btn btn-info btn-block mb-1" data-toggle="collapse"
+                        data-target="#collapseDescNl">Ajouter une description</button>
+                    <div class="collapse" id="collapseDescNl">
+                        <!-- <editor [apiKey]="'TINYMCE_KEY' | env" [init]="editorOptions" formControlName="description2_nl"></editor> -->
+                        <textarea formControlName="description2_nl" cols="30" rows="10"></textarea>
+                        <div>
+                            <button type="button" class="btn btn-info btn-block mb-1" data-toggle="collapse"
+                                data-target="#collapseDescNl2">Ajouter une description</button>
+                            <div class="collapse" id="collapseDescNl2">
+                                <!-- <editor [apiKey]="'TINYMCE_KEY' | env" [init]="editorOptions" formControlName="description3_nl"></editor> -->
+                                <textarea formControlName="description3_nl" cols="30" rows="10"></textarea>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+            <div id="enDesc" class=" tab-pane fade">
+                <label class="label-control">Nom : </label>
+                <input type="text" class="form-control" formControlName="name_en">
+                <label class="label-control">Description :</label>
+                <!-- <editor  [apiKey]="'TINYMCE_KEY' | env" [init]="editorOptions" formControlName="description1_en"></editor> -->
+                <textarea formControlName="description1_en" cols="30" rows="10"></textarea>
+                <div>
+                    <button type="button" class="btn btn-info btn-block mb-1" data-toggle="collapse"
+                        data-target="#collapseDescEn">Ajouter une description</button>
+                    <div class="collapse" id="collapseDescEn">
+                        <!-- <editor [apiKey]="'TINYMCE_KEY' | env" [init]="editorOptions" formControlName="description2_en"></editor> -->
+                        <textarea formControlName="description2_en" cols="30" rows="10"></textarea>
+                        <div>
+                            <button type="button" class="btn btn-info btn-block mb-1" data-toggle="collapse"
+                                data-target="#collapseDescEn2">Ajouter une description</button>
+                            <div class="collapse" id="collapseDescEn2">
+                                <!-- <editor [apiKey]="'TINYMCE_KEY' | env" [init]="editorOptions" formControlName="description3_en"></editor> -->
+                                <textarea formControlName="description3_en" cols="30" rows="10"></textarea>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="label-control">Nom latin :</label>
+        <input type="text" class="form-control" formControlName="name_la">
+    </div>
+    <div class="form-group">
+        <label class="label-control">Sélectionner un niveau de difficulté :</label>
+        <select class="form-control" formControlName="categoryPlant_id">
+            <option *ngFor="let category of allCat" [value]="category.id">
+                {{ category.name }}
+            </option>
+        </select>
+    </div>
+    <div class="row mb-3" id="checkboxes">
+        <div class="col-md-12">
+            <h4>Saisons :</h4>
+        </div>
+        <div class="form-group" *ngFor="let s of Seasons">
+            <label>
+                <input [checked]="s.checked" type="checkbox" [value]="s.value"
+                    (change)="onCheckboxChange($event)">{{s.name}}
+            </label>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-md-12">
+            <h4>Coordonnées</h4>
+        </div>
+        <div class="form-group col-md-6">
+            <label>Latitude</label>
+            <input type="number" class="form-control" formControlName="latitude" (input)="refreshMarker()">
+        </div>
+        <div class="form-group col-md-6">
+            <label>Longitude</label>
+            <input type="number" class="form-control" formControlName="longitude" (input)="refreshMarker()">
+        </div>
+        <div class="col-md-12">
+            <button type="button" class="btn btn-info btn-block mb-1" data-toggle="collapse"
+                data-target="#map-container">Afficher/Cacher la carte</button>
+            <div class="collapse show" id="map-container">
+                <div id=map></div>
+                <button type="button" id="focus" (click)="setBounds()"><i class="fas fa-bullseye"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="row">
+            <label class="col-md-6">Ajouter une image</label>
+            <input #fileInput hidden type="file" accept="image/*" (change)="fileChange($event)">
+            <div class="imageCont">
+                <div class="col-md-6">
+                    <div class="ImageContainer" (click)="fileInput.click()">
+                        <img [src]="imageSource | imgDefault">
+                    </div>
+                    <div class="pt-3" *ngIf="imageSource != null">
+                        <button (click)="deletePic()" class="btn btn-danger" type="button">Supprimer l'image</button>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div>
+                        <img id="cropper" #cropper [src]="rawImage">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <div>
+        <div>
+            <button class="btn btn-success audio">Sauvegarder</button>
+        </div>
+    </div>
+</form>

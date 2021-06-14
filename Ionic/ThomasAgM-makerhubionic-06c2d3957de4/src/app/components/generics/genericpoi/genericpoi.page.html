@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title >{{getName(poi)}}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="close()"> Fermer </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="background">
+    <div class="whitetext">
+      <div style="margin: 10px;">
+        <img [src]="getImg(poi)">
+        <p [innerHTML] = "getDescription(poi)"></p>
+      
+      
+      </div>
+    </div>
+  </div>
+  
+</ion-content>

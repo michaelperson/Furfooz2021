@@ -1,0 +1,57 @@
+<div class="container-fluid" *ngIf="model">
+    <div class="row">
+        <div class="col-md-4 mb-2">
+            <button class="btn btn-info" (click)="refresh()">Rafraichir</button>
+        </div>
+        <div class="col-md-4 mb-2">
+            <label>Périodicité</label>
+            <select class="form-control" [(ngModel)]="periodicity" (change)="refresh()">
+                <option value="daily">Par jour</option>
+                <option value="weekly">Par semaine</option>
+                <option value="monthly">Par mois</option>
+            </select>
+        </div>
+        <div class="col-md-4 mb-2">
+            <label>Depuis le</label>
+            <input class="form-control" type="date" [ngModel]="startDate|date:'yyyy-MM-dd'" (ngModelChange)="onDateChanged($event)">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 mb-2">
+            <h2>{{ periodicity == 'daily' ? 'Aujourd\'hui' : periodicity == 'weekly' ? 'Cette semaine' : 'Ce mois' }}</h2>
+            <p>Montant : {{ model[model.length - 1].amount | number : '0.2-2' }} €</p>
+            <p>Affluence : {{ model[model.length - 1].affluence }}</p>
+            <p>Nombre de tickets : {{ model[model.length - 1].ticketCount }}</p>
+        </div>
+        <div class="col-md-6 mb-2">
+            <h2>Depuis le {{ startDate.toLocaleDateString() }}</h2>
+            <p>Montant : {{ model | sum : 'amount' | number : '0.2-2' }} €</p>
+            <p>Affluence : {{ model | sum : 'affluence' }}</p>
+            <p>Nombre de tickets : {{ model | sum : 'ticketCount' }}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6 mb-2">
+            <div class="card">
+                <canvas baseChart
+                        width="100%"
+                        [datasets]="data1"
+                        [labels]="labels1"
+                        chartType="bar"
+                        [options]="chartOptions"
+                ></canvas>
+            </div>
+        </div>
+        <div class="col-sm-6 mb-2">
+            <div class="card">
+                <canvas baseChart
+                        width="100%"
+                        [datasets]="data2"
+                        [labels]="labels2"
+                        chartType="line"
+                        [options]="chartOptions"
+                ></canvas>
+            </div>
+        </div>
+    </div>
+</div>

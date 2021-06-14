@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title></ion-title>
+    <!-- <ion-buttons slot="end">
+      <ion-button (click)="close()">{{'General.Close' | translate}}</ion-button>
+    </ion-buttons> -->
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="background">
+    <div class="whitetext">
+      <ion-list no-lines>
+        <ion-item *ngFor="let location of poiList">
+            <ion-avatar item-left>
+                <ion-icon src="../"></ion-icon>
+            </ion-avatar>
+            <p (click)="poiModal(location.Id); close()">{{getName(location)}}</p>
+        </ion-item>
+      </ion-list>
+    </div>
+  </div>
+  
+</ion-content>

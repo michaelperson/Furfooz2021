@@ -1,0 +1,29 @@
+<ion-header>
+    <ion-toolbar> 
+      <ion-title> {{ 'Flobette.Flobette' | translate }} </ion-title>
+      <!-- <ion-buttons slot="start">
+        <ion-menu-button menu="main-menu">  </ion-menu-button>
+      </ion-buttons>  -->
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+    <div class="background">
+      <div class="whitetext">
+        <table>
+          <tr>
+            <th>{{'Flobette.Dish' | translate}}</th>
+            <th>{{'Flobette.Price' | translate}}</th>
+          </tr>
+          <tr *ngFor="let menuitem of FlobetteList">
+            <td *ngIf="getName(menuitem) != NUll">{{getName(menuitem)}}  </td>
+            <td *ngIf="getName(menuitem) != NUll">{{menuitem.Price}}€  </td>
+          </tr>
+          
+        </table>
+      </div>
+    </div>
+  </ion-content>
+  
+  
+  

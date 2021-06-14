@@ -1,0 +1,175 @@
+// V2
+// /////////////////////// FONT GENERALE////////////////////////
+@import url('https://fonts.googleapis.com/css2?family=BenchNine&display=swap');
+*{
+    font-family: 'Open Sans',-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+}
+#all{
+    width: 100vw;
+    height: 100vh;
+}
+/////// TITRE "SENTIER BOTANIQUE"///////////////////
+.divTitle{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 25%;
+    background-color: white;
+    position: fixed;
+}
+.divTitleAlerte{
+    z-index:10;
+    display:flex;
+    align-content: center;
+    align-items: center;
+    flex-direction: row;
+    width: 100%;
+    height: 40%;
+}
+.title{
+    z-index: 9;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:white;
+    height: 100%;
+    font-size: 34px;
+    font-family: 'benchNine';
+    font-style: normal;
+    font-weight: 700;
+}
+.divButtonAlerte{
+    position: absolute;
+    z-index:10;
+    width: 10%;
+    height: 20%;
+    right: 2%;
+    top:11%;
+    font-size: 0.6em;
+}
+// //////////////////////////////////////////ICON FILTRE//////////////////////////////////////
+.list{
+    z-index: 10;
+    background-color: white;
+    height: 60%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-content: center;
+    justify-content: space-around;
+    width: 100%;
+    padding-right:10vw;
+    padding-left:10vw;
+}
+.divButton{
+    // border: 1px solid red;
+    display:flex;
+    flex-direction: column;
+}
+.divButton img{
+    height: 35px;
+}
+///// DIV DES DEUX LISTES DE PLANTE ///
+#divAllList{
+    z-index :1;
+    padding-top:25vh; 
+    padding-bottom:16%; 
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.addPadding{
+    padding-bottom: 30% !important;
+}
+.titleBoucle{
+    display: block;
+    text-align: center;
+    width: 100%;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 100%;
+    text-transform: uppercase;
+    /* foncé */
+    color: #185A74;
+    background-color: white;
+}
+.boucle{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    padding-right:6vw;
+    padding-left:6vw;
+    min-height: 5%;
+    padding-bottom: 3vh;
+}
+.divImage{
+    width: 42vw;
+    height: 15vh;
+    margin-top: 5%;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.ImageImage{
+    width: 100%;
+    height: 100%;
+}
+.divBackgroundTransbox{
+    background-color: rgba(0, 0, 0, 0.6);
+    height: 32%;
+    width: 100%;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-top: -35%;
+}
+.ImageName{
+    font-weight: normal;
+    color: white;
+    text-align: center;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 14px;
+    line-height: 21,79px;
+    opacity: 1;
+}
+///// PREMIERE LISTE A PROXIMITE/////////
+.notProx{
+    padding-top:2vh;
+    display: block;
+    width: 100%;
+    text-align: center;
+    color:black;
+}
+///// DEUXIEME LISTE A PLUS DE 50M////////////
+///// LOADING////
+.divWithTitleAndBoucle{
+    width: 100%;
+    
+}
+///////////////////////saison///////////////////
+.list1{
+    background-color: white;
+    position: fixed;
+    bottom: 0;
+    height: 9%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    padding-right: 15vw;
+    padding-left:15vw;
+    padding-bottom: 1vw;
+    padding-top: 1vw;
+}
+.divButtonSaison{
+    display:flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+    .divButtonSaison img{
+        height: 35px;
+    }

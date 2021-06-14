@@ -1,0 +1,86 @@
+CREATE TABLE Category(
+	Id INT PRIMARY KEY IDENTITY,
+	Name_fr NVARCHAR(50) NOT NULL,
+	Name_en NVARCHAR(50),
+	Name_nl NVARCHAR(50),
+	IsDeleted BIT NOT NULL DEFAULT 0,
+	PinColor NVARCHAR(50) NOT NULL
+);
+
+CREATE TABLE PointOfInterests(
+	Id INT PRIMARY KEY IDENTITY,
+	Name_fr NVARCHAR(50) NOT NULL,
+	Name_en NVARCHAR(50),
+	Name_nl NVARCHAR(50),
+	Description_fr NVARCHAR(max),
+	Description_en NVARCHAR(max),
+	Description_nl NVARCHAR(max),
+	IsDeleted BIT NOT NULL DEFAULT 0,
+    [Image] VARBINARY(MAX),
+    MimeType VARCHAR(25),
+    Latitude FLOAT,
+    Longitude FLOAT,
+    Interval FLOAT,
+    StartDate DATE,
+    EndDate DATE,
+    Category_id INT NOT NULL REFERENCES Category ON DELETE CASCADE
+);
+
+CREATE TABLE Tariff
+(
+	Id INT PRIMARY KEY IDENTITY,
+	TicketType VARCHAR(50) NOT NULL,
+	FurfoozPrice FLOAT NOT NULL,
+	FurfoozReducedPrice FLOAT NOT NULL,
+	VevesPrice FLOAT NOT NULL,
+	VevesReducedPrice FLOAT NOT NULL,
+	MosanPrice FLOAT NOT NULL,
+	MosanReducedPrice FLOAT NOT NULL
+);
+
+CREATE TABLE Booking
+(
+	Id INT PRIMARY KEY IDENTITY,
+	[Date] DATETIME2 NOT NULL,
+	[Hour] INT NULL,
+	[Minute] INT NULL,
+	NbAdults INT DEFAULT 0,
+	NbStudents INT DEFAULT 0,
+	NbKids INT DEFAULT 0,
+	CombinedMosan BIT NOT NULL,
+	CombinedVeves BIT NOT NULL,
+	WantAGuide BIT DEFAULT 0,
+	Reference VARCHAR(50) NOT NULL,
+	Total MONEY NOT NULL,
+	IsCheck BIT DEFAULT 0,
+	MailAdress VARCHAR(MAX) NULL,
+	IdStripe VARCHAR(MAX) NULL,
+	PayementType VARCHAR(255) NULL,
+	MemberNumber INT DEFAULT 0,
+	SendEmail BIT DEFAULT 0
+);
+
+CREATE TABLE [Parameters]
+(
+	[Id] INT PRIMARY KEY IDENTITY,
+	[ParameterName] VARCHAR(50) NOT NULL,
+	[Value] VARCHAR(50) NOT NULL
+);
+
+Create Table Cameras(
+	Id INT PRIMARY KEY IDENTITY,
+	Nom Nvarchar(50) NOT NULL,
+	Emplacement NVARCHAR(MAX) NOT NULL,
+	EstActif BIT NOT NULL DEFAULT 0
+);
+
+Create Table ClipVideo(
+	Id INT PRIMARY KEY IDENTITY,
+	Lien NVARCHAR(MAX) NOT NULL,
+	Nom NVARCHAR(50) NOT NULL,
+	LaDate DATETIME NOT NULL,
+	Detail NVARCHAR(MAX) NOT NULL,
+	Duree INT NOT NULL,
+	EstAffiche BIT NOT NULL DEFAULT 0,
+	Camera_Id INT NOT NULL REFERENCES Cameras ON DELETE CASCADE
+);

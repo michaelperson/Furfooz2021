@@ -1,0 +1,24 @@
+.titre {
+    display: flex;
+    justify-content: space-between;
+}
+
+.titre > div {
+    display: flex;
+    align-items: center;
+}
+
+.add {
+    height: 75%;
+}
+
+th{
+    text-align: center;
+}
+td{
+    text-align: center;
+
+}
+#miniature{
+    height: 4vh;
+}

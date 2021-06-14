@@ -1,0 +1,112 @@
+ion-item{
+  --inner-padding-end: 0px;
+  --padding-start:0px
+}
+
+
+
+.CamTitle{
+  color:black;
+  font-weight: bold;
+  width: 100%;
+  text-align: center;
+}
+
+iframe{
+  margin: 0px;
+  padding: 0px;
+}
+
+img{
+    width:100%;
+    height:100%;
+    z-index: 1;
+  }
+  
+  .myCard{
+    position:relative;
+    height: 82%;
+    z-index: 2;
+  }
+
+
+  .myOverlay{
+      width: 100%;
+      height: 40px;
+      position: absolute;
+      z-index: 50;
+      bottom: 0px;
+      opacity: 1;
+     
+      text-align: center;
+     
+      padding: 0px;
+      font-weight: bold;
+      display: flex;
+      margin: 0;
+      padding: 0;
+      justify-content: space-evenly;
+     align-items: center;
+  }
+
+  .ion-padding-start{
+    padding: 0px
+  }
+
+  .PageClick{
+    width:100%;
+    border-left: solid 1px white;
+    color: black;
+    
+  }
+  
+  .PageEnCours{
+    width: 100%;
+    background-color:green;
+    color:white
+    
+  }
+
+  .buttonclass{
+    width: 50%;
+      height: 40px;
+      position: absolute;
+      z-index: 50;
+      bottom: 0px;
+      opacity: 1;
+      background: #185A74;
+      color: #fff;
+      text-align: center;
+      padding: 0px;
+      font-weight: bold;;
+  }
+
+  .LIVE{
+      position: absolute;
+      margin-bottom: 300px;
+  }
+  .LIVETEXT{
+      
+      animation: blink-animation 1s steps(5, start) infinite;
+     -webkit-animation: blink-animation 1s steps(2, start) infinite;
+      position: absolute;
+      height: 150px;
+      width: 150px;
+      z-index: 99;
+      color: red;
+      margin-top: -250px;
+      margin-left: 520px;
+      font-weight: bold;
+      font-size: 15px;
+      
+  }
+  @keyframes blink-animation {
+    to {
+      visibility: hidden;
+    }
+  }
+  @-webkit-keyframes blink-animation {
+    to {
+      visibility: hidden;
+    }
+  }
